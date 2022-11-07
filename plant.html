@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Хоста гибридная Патриот. Марьявилла</title>
+
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+
+	<link rel="stylesheet" href="styles/jquery.fancybox.min.css">
+	<link rel="stylesheet" href="styles/owl.carousel.min.css">
+	<link rel="stylesheet" href="styles/owl.theme.default.min.css">
+	<link rel="stylesheet" href="styles/fontello.css">
+	<link rel="stylesheet" href="styles/styles.css">
+
+</head>
+
+<body class="frame">
+	<!-- 
+	  Заголовок страницы
+	 -->
+
+	<!-- зелёная полоса во всю ширину экрана -->
+	<div class="top-bar"> </div>
+
+	<!-- 
+		Верхняя часть заголовка 
+	-->
+	<header class="header-top">
+
+		<!-- Блок информации -->
+		<ul class="info">
+			<li class="info__item info__item_phone">
+				<a class="info__link" href="tel:+375293231211" title="Звоните нам!">+375 29 3231211</a>
+			</li>
+			<li class="info__item info__item_email">
+				<a class="info__link" href="mailto:contacts@mariavilla.com" title="Пишите нам!">contacts@mariavilla.com</a>
+			</li>
+		</ul>
+
+		<!-- Блок социальных сетей -->
+		<ul class="socials">
+			<li class="socials__item">
+				<a class="socials__link" href="https://www.instagram.com/" target="_blank" title="instagram"><span
+						class="icon-instagram"></span></a>
+			</li>
+			<li class="socials__item">
+				<a class="socials__link" href="https://web.telegram.org/" target="_blank" title="telegram"><span
+						class="icon-telegram"></span></a>
+			</li>
+			<li class="socials__item">
+				<a class="socials__link" href="https://twitter.com/" target="_blank" title="twitter"><span
+						class="icon-twitter"></span></a>
+			</li>
+			<li class="socials__item">
+				<a class="socials__link" href="https://www.youtube.com/" target="_blank" title="youtube"><span
+						class="icon-youtube-play"></span></a>
+			</li>
+		</ul>
+	</header>
+
+
+	<!-- 
+		Нижняя часть заголовка с меню 
+	-->
+	<header class="header-bottom">
+		<!-- Блок с логотипом -->
+		<a class="logo" href="index.html">
+			<img class="logo__image" src="images/logo_mariavilla.svg" alt="Mariavilla">
+		</a>
+
+		<!-- Блок меню -->
+		<nav class="menu" id="mainMenu">
+			<ul class="menu__list">
+				<li class="menu__item menu__item_mobile">
+					<div class="menu__button-close">
+						<button class="button button_close" id="btnCloseMenu">
+							<span class="icon-cancel-2"></span>
+						</button>
+					</div>
+				</li>
+				<li class="menu__item menu__item_mobile">
+					<a class="logo logo_mobile" href="index.html">
+						<img class="logo__image" src="images/logo_mariavilla.svg" alt="Mariavilla">
+					</a>
+				</li>
+				<li class="menu__item">
+					<a class="menu__link" href="index.html">Главная</a>
+				</li>
+				<li class="menu__item">
+					<a class="menu__link" href="gallery.html">Галлерея</a>
+				</li>
+				<li class="menu__item">
+					<div class="menu__mobile">
+						<a class="menu__link" href="collection.html">Коллекция</a>
+						<button class="icon-down-open-big menu__icon" id="btnOpenCollection" onclick="openSubMenu(this)"></button>
+					</div>
+					<!-- Блок подменю -->
+					<div class="submenu" id="subMenuCollection">
+						<div class="submenu__box">
+							<div class="submenu__content">
+								<div class="submenu__title">Многолетние растения</div>
+								<ul class="submenu__list">
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu1-pic1"
+											href="collection.html">Хосты</a>
+									</li>
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu1-pic2"
+											href="collection.html">Розы</a>
+									</li>
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu1-pic3"
+											href="collection.html">Лилейники</a></li>
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu1-pic4"
+											href="collection.html">Лилии</a>
+									</li>
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu1-pic5"
+											href="collection.html">Ирисы</a>
+									</li>
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu1-pic6"
+											href="collection.html">Примулы</a></li>
+								</ul>
+							</div>
+							<div class="submenu__picture-box">
+								<img class="submenu__picture submenu__picture_show" id="subMenu1-pic1"
+									src="images/sub_menu_hosta_01.jpg" alt="">
+								<img class="submenu__picture" id="subMenu1-pic2" src="images/sub_menu_roses_01.jpg" alt="">
+								<img class="submenu__picture" id="subMenu1-pic3" src="images/sub_menu_daylily_01.jpg" alt="">
+								<img class="submenu__picture" id="subMenu1-pic4" src="images/sub_menu_lilies_01.jpg" alt="">
+								<img class="submenu__picture" id="subMenu1-pic5" src="images/sub_menu_iris_01.jpg" alt="">
+								<img class="submenu__picture" id="subMenu1-pic6" src="images/sub_menu_primula_01.jpg" alt="">
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="menu__item">
+					<a class="menu__link" href="about.html">О&nbsp;нас</a>
+				</li>
+				<li class="menu__item">
+					<a class="menu__link" href="contacts.html">Контакты</a>
+				</li>
+				<li class="menu__item">
+					<div class="menu__mobile">
+						<a class="menu__link" href="blog.html">Блог</a>
+						<button class="icon-down-open-big menu__icon" id="btnOpenBlog" onclick="openSubMenu(this)"></button>
+					</div>
+					<!-- Блок подменю -->
+					<div class="submenu" id="subMenuBlog">
+						<div class="submenu__box">
+							<div class="submenu__content">
+								<div class="submenu__title">Заметки о цветах</div>
+								<ul class="submenu__list">
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu2-pic1" href="blog.html">Интересно
+											о цветах</a></li>
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu2-pic2" href="blog.html">Цветочная
+											кулинария</a></li>
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu2-pic3" href="blog.html">Пряные
+											травы</a></li>
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu2-pic4" href="blog.html">Уход за
+											растениями</a></li>
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu2-pic5" href="blog.html">Болезни
+											растений</a></li>
+								</ul>
+							</div>
+							<div class="submenu__picture-box">
+								<img class="submenu__picture submenu__picture_show" id="subMenu2-pic1"
+									src="images/sub_menu_interesting_01.jpg" alt="">
+								<img class="submenu__picture" id="subMenu2-pic2" src="images/sub_menu_cooking_01.jpg" alt="">
+								<img class="submenu__picture" id="subMenu2-pic3" src="images/sub_menu_spices_01.jpg" alt="">
+								<img class="submenu__picture" id="subMenu2-pic4" src="images/sub_menu_care_01.jpg" alt="">
+								<img class="submenu__picture" id="subMenu2-pic5" src="images/sub_menu_disease_01.jpg" alt="">
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</nav>
+
+		<!-- Блок управления  (поиск, меню мобильное) -->
+		<div class="controls">
+			<!-- Блок поиска -->
+			<div class="search">
+				<form class="search__form">
+					<div class="search__input">
+						<input class="search__field" id="searchField" name="search" type="text" placeholder="Поиск&hellip;"
+							required>
+						<button class="search__button search__button_submit" id="btnSearchSubmt" type="submit">
+							<span class="icon-search-3 search__icon"></span>
+						</button>
+						<button class="search__button search__button_delete" id="btnSearchDelete" type="reset">
+							<span class="icon-cancel-2 search__icon"></span>
+						</button>
+					</div>
+				</form>
+			</div>
+
+			<div class="mobile">
+				<div class="mobile__search">
+					<button class="mobile__button mobile__button_search" onclick="toggleSearchField()">
+						<span class="icon-search-3 mobile__icon"></span>
+					</button>
+				</div>
+				<div class="mobile__menu">
+					<button class="mobile__button mobile__button_menu" id="btnOpenMenu">
+						<span class="icon-menu mobile__icon"></span>
+					</button>
+				</div>
+			</div>
+		</div>
+
+	</header>
+
+	<!-- 
+		Основная часть страницы 
+	 -->
+	<main class="plant-page">
+
+		<!-- Баннер на всю ширину вьюпорта сразу после шапки страницы -->
+		<div class="banner banner_collection banner_narrow">
+			<div class="banner__overlay">
+				<div class="banner__text">
+					<p class="banner__title">
+						Коллекция
+					</p>
+					<p class="banner__subtitle">
+						Многолетние растения
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Блоки описания растенния -->
+		<!-- Блок превьюшек -->
+		<div class="plant-thumbs">
+			<div class="plant-thumbs__thumb plant-thumbs__thumb_hide">
+				<img class="plant-thumbs__image" src="images/content/plants/hosta_patriot_01_thumb.jpg" data-id="pic1"
+					onclick="togglePreviewImage(this)" alt="Хоста">
+			</div>
+			<div class="plant-thumbs__thumb">
+				<img class="plant-thumbs__image" src="images/content/plants/hosta_patriot_02_thumb.jpg" data-id="pic2"
+					onclick="togglePreviewImage(this)" alt="Хоста Патриот">
+			</div>
+			<div class="plant-thumbs__thumb">
+				<img class="plant-thumbs__image" src="images/content/plants/hosta_patriot_03_thumb.jpg" data-id="pic3"
+					onclick="togglePreviewImage(this)" alt="Хоста гибридная Патриот">
+			</div>
+			<div class="plant-thumbs__thumb">
+				<img class="plant-thumbs__image" src="images/content/plants/hosta_patriot_04_thumb.jpg" data-id="pic4"
+					onclick="togglePreviewImage(this)" alt="Хоста">
+			</div>
+		</div>
+
+		<!-- Блок изображенения -->
+		<div class="plant-picture">
+			<a class="plant-picture__link plant-picture_hide" href="images/content/plants/hosta_patriot_04.jpg" id="pic4"
+				data-fancybox="plantpreview" data-caption="Хоста гибридная &laquo;Патриот&raquo;">
+				<img class="plant-picture__image" src="images/content/plants/hosta_patriot_04_preview.jpg"
+					alt="Хоста Патриот Hosta hybrida Patriot">
+			</a>
+			<a class="plant-picture__link plant-picture_hide" href="images/content/plants/hosta_patriot_03.jpg" id="pic3"
+				data-fancybox="plantpreview" data-caption="Хоста гибридная &laquo;Патриот&raquo;">
+				<img class="plant-picture__image" src="images/content/plants/hosta_patriot_03_preview.jpg"
+					alt="Хоста Патриот Hosta hybrida Patriot">
+			</a>
+			<a class="plant-picture__link plant-picture_hide" href="images/content/plants/hosta_patriot_02.jpg" id="pic2"
+				data-fancybox="plantpreview" data-caption="Хоста гибридная &laquo;Патриот&raquo;">
+				<img class="plant-picture__image" src="images/content/plants/hosta_patriot_02_preview.jpg"
+					alt="Хоста Патриот Hosta hybrida Patriot">
+			</a>
+			<a class="plant-picture__link" href="images/content/plants/hosta_patriot_01.jpg" id="pic1"
+				data-fancybox="plantpreview" data-caption="Хоста гибридная &laquo;Патриот&raquo;">
+				<img class="plant-picture__image" src="images/content/plants/hosta_patriot_01_preview.jpg"
+					alt="Хоста Патриот Hosta hybrida Patriot">
+			</a>
+		</div>
+
+		<!-- Блок краткого описания растения-->
+		<div class="plant-desc">
+			<h1 class="plant-desc__title">Хоста гибридная &laquo;Патриот&raquo;</h1>
+			<p class="plant-desc__latin">Hosta hybrida Patriot</p>
+
+			<p class="plant-desc__text">
+				Хоста &laquo;Патриот&raquo;&nbsp;&mdash; многолетняя травянистая культура, которая ценится за высокие
+				декоративные качества. При этом растение сохраняет привлекательный внешний вид на протяжении всего сезона. Эта
+				гибридная форма отличается контрастным оттенком листьев, поэтому заметно выделяется на фоне остальных видов. Но
+				для достижения максимальной декоративности, необходимо соблюдать некоторые правила агротехники.
+			</p>
+			<div class="plant-desc__features">
+				<p class="plant-desc__feature">
+					<strong>Класс:</strong> многолетние растения
+				</p>
+				<p class="plant-desc__feature">
+					<strong>Цветение:</strong> декоративнолистные
+				</p>
+				<p class="plant-desc__feature">
+					<strong>Размер цветка:</strong> до 8 см
+				</p>
+				<p class="plant-desc__feature">
+					<strong>Высота растения:</strong> до 70 см
+				</p>
+				<p class="plant-desc__feature">
+					<strong>Отношение к свету:</strong> теневыносливое
+				</p>
+				<p class="plant-desc__feature">
+					<strong>Зимостойкость:</strong> высокая
+				</p>
+			</div>
+
+			<!-- Блок поделиться в соцсетях -->
+			<div class="share-link">
+				<span>Поделиться:</span>
+				<ul class="socials">
+					<li class="socials__item">
+						<a class="socials__link" href="https://www.instagram.com/" target="_blank" title="instagram"><span
+								class="icon-instagram"></span></a>
+					</li>
+					<li class="socials__item">
+						<a class="socials__link" href="https://web.telegram.org/" target="_blank" title="telegram"><span
+								class="icon-telegram"></span></a>
+					</li>
+					<li class="socials__item">
+						<a class="socials__link" href="https://twitter.com/" target="_blank" title="twitter"><span
+								class="icon-twitter"></span></a>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+
+
+		<!-- Блок расширенного описания растения -->
+		<div class="plant-subject">
+			<!-- Меню блока расширенного описания растения -->
+			<nav class="detail-menu">
+				<ul class="detail-menu__list">
+					<li class="detail-menu__item">
+						<button class="detail-menu__link detail-menu__link_active" data-id="detailInfoReview"
+							onclick="toggleDetailInfo(this)">Описание</button>
+					</li>
+					<li class="detail-menu__item">
+						<button class="detail-menu__link" data-id="detailInfoUse"
+							onclick="toggleDetailInfo(this)">Применение</button>
+					</li>
+					<li class="detail-menu__item">
+						<button class="detail-menu__link" data-id="detailInfoGrowing"
+							onclick="toggleDetailInfo(this)">Выращивание</button>
+					</li>
+				</ul>
+			</nav>
+
+			<div class="detail-info">
+				<div class="detail-info__tab detail-info__tab_aclive" id="detailInfoReview">
+
+					<p class="plant-subject__text">
+						Эта хоста характеризуется куполовидным раскидистым кустом (куртиной). Растение имеет прикорневые, черешковые
+						листья, которые ниспадают и образуют розетку высотой 70 см и диаметром до 100 см. Широкие
+						овально-сердцевидные
+						пластины с рифленой поверхностью. Длина листьев&nbsp;&mdash; 13 см, а ширина&nbsp;&mdash; около 9 см.
+					</p>
+
+					<p class="plant-subject__text">
+						Гибридная хоста &laquo;Патриот&raquo; относится к категории пестролистных. Основной окрас ее листьев
+						темно-зеленый, но по краям пластин присутствует широкая белая кайма. Корневая система у растения состоит из
+						утолщенных ветвистых и мочковато-шнуровидных отростков.
+					</p>
+
+					<p class="plant-subject__text">
+						Период цветения наступает в середине июля или в начале августа. В это время растение формирует крепкие
+						цветоносы
+						высотой до 1 м, которые уверенно возвышаются над листьями. Цветы у &laquo;Патриота&raquo; ароматные,
+						воронковидной формы, крупные, диаметром около 6 см. Зачастую вырастают однобокие, собраны в кистевидные
+						соцветия. Оттенок лепестков нежно-лавандовый.
+					</p>
+
+					<p class="plant-subject__text">
+						Эта хоста характеризуется большой силой роста. Раскидистый куст образуется по истечении трех лет.
+					</p>
+
+					<p class="plant-subject__text">
+						Этот вид отличается высоким уровнем морозоустойчивости. Растение не страдает от пониженной температуры до
+						-34
+						градусов. Поэтому подходит для выращивания в центральных и северных регионах страны.
+					</p>
+				</div>
+
+				<div class="detail-info__tab" id="detailInfoUse">
+
+					<p class="plant-subject__text">
+						Хоста «Патриот» отлично смотрится в одиночной, групповой посадке, а также при создании больших композиций.
+						Ее
+						высокорослый куст может выступать солитером на фоне зеленого газона и в сочетании с хвойниками. Также ее
+						можно
+						высаживать по краю водоемов, садовых дорожек, вблизи фонтанов и статуй.
+					</p>
+
+					<p class="plant-subject__text">
+						При сочетании с другими видами культуры необходимо подбирать сорта с одинаковой высотой куста и периодом
+						цветения. При создании многоуровневой клумбы &laquo;Патриот&raquo; может быть отличным фоном для низкорослых
+						разновидностей
+						голубого и зеленого окраса.
+					</p>
+
+					<p class="plant-subject__text">
+						Чтобы подчеркнуть красоту листьев этого многолетника, необходимо подбирать ему компаньонов с другими
+						оттенками.
+						В этом случае отлично подходит гейхера, горянка.
+					</p>
+
+					<p class="plant-subject__text">
+						Если необходимо создать вертикальный акцент, то хосту &laquo;Патриот&raquo; рекомендуют выращивать с
+						высокорослыми
+						флоксами,
+						лилейниками и наперстянкой. Красоту ее подчеркнет сочетание с растениями как с маленькими
+						листочками&nbsp;&mdash;
+						будра,
+						лизимахия, барвинок, так и резными&nbsp;&mdash; папоротник, анемоны, астильба, пионы. Также отлично
+						смотрится этот
+						многолетник в композиции со злаковыми: мискантусы, вейники, молинии.
+					</p>
+
+					<p class="plant-subject__text">
+						В сочетании с розами на одной клумбе хоста &laquo;Патриот&raquo; сможет красиво замаскировать оголенные
+						ветви внизу.
+					</p>
+				</div>
+
+				<div class="detail-info__tab" id="detailInfoGrowing">
+
+					<p class="plant-subject__text">
+						Этот многолетник является долгожителем и на одном месте он может расти 20 и более лет. Выращивать хосту
+						&laquo;Патриот&raquo; рекомендуется в полутени, так как под прямыми солнечными лучами на листьях растения
+						образуются
+						ожоги, а в условиях глубокой тени декоративность растения теряется. Оптимальные сроки для
+						посадки&nbsp;&mdash; первая
+						половина мая или конец августа-начало сентября.
+					</p>
+
+					<p class="plant-subject__text">
+						Получить молодые саженцы хосты &laquo;Патриот&raquo; можно семенами, черенками и делением куста. При первом
+						способе
+						посев следует проводить в июне непосредственно в грунт. Семенной метод позволяет получить полноценные кусты
+						хосты &laquo;Патриот&raquo; на пятый год.
+					</p>
+
+					<p class="plant-subject__text">
+						Второй способ подразумевает размножение листовыми черенками. Для этого используют молодые побеги хосты,
+						отрывая их с «пяткой». Укоренение следует проводить во влажном субстрате. Благоприятный период для
+						черенкования &laquo;Патриот&raquo;&nbsp;&mdash; май-июнь.
+					</p>
+
+					<p class="plant-subject__text">
+						Третий способ является самым простым и доступным. Деление куста рекомендуется проводить весной, при
+						появлении новых побегов, или в начале осени. Маточник следует делить на несколько частей, каждый из которых
+						должен иметь точку роста и хорошо развитый корневой отросток. Поэтому саженцы быстро приживаются на новом
+						месте и идут в рост.
+					</p>
+
+				</div>
+			</div>
+
+			<!-- Контейнер на гридах для фотографий растения  -->
+			<div class="plant-subject__wrap">
+				<div class="plant-subject__box plant-subject__box_vertical">
+					<a class="plant-subject__link" href="images/content/plants/gal_hosta_patriot_04.jpg"
+						data-fancybox="galleryplant" data-caption="Хосты хорошо смотрятся вдоль бордюра">
+						<img class="plant-subject__image" src="images/content/plants/gal_hosta_patriot_04_preview.jpg"
+							alt="хосты вдоль бордюра">
+					</a>
+				</div>
+				<div class="plant-subject__box plant-subject__box_big">
+					<a class="plant-subject__link" href="images/content/plants/gal_hosta_patriot_02.jpg"
+						data-fancybox="galleryplant" data-caption="Хосты хорошо сочетаются с садовыми скульптурами">
+						<img class="plant-subject__image" src="images/content/plants/gal_hosta_patriot_02_preview.jpg"
+							alt="хоста и скульптура ангела">
+					</a>
+				</div>
+				<div class="plant-subject__box">
+					<a class="plant-subject__link" href="images/content/plants/gal_hosta_patriot_01.jpg"
+						data-fancybox="galleryplant" data-caption="Цветущая хоста">
+						<img class="plant-subject__image" src="images/content/plants/gal_hosta_patriot_01_preview.jpg"
+							alt="цветущая хоста в саду ">
+					</a>
+				</div>
+				<div class="plant-subject__box">
+					<a class="plant-subject__link" href="images/content/plants/gal_hosta_patriot_05.jpg"
+						data-fancybox="galleryplant" data-caption="Сочетайте хосты с другими растениями">
+						<img class="plant-subject__image" src="images/content/plants/gal_hosta_patriot_05_preview.jpg"
+							alt="хосты на клумбе перед домом">
+					</a>
+				</div>
+				<div class="plant-subject__box plant-subject__box_horizontal">
+					<a class="plant-subject__link" href="images/content/plants/gal_hosta_patriot_03.jpg"
+						data-fancybox="galleryplant" data-caption="Хосты — отличный выбор для посадки под деревьями">
+						<img class="plant-subject__image" src="images/content/plants/gal_hosta_patriot_03_preview.jpg"
+							alt="хосты под старым деревом">
+					</a>
+				</div>
+				<div class="plant-subject__box">
+					<a class="plant-subject__link" href="images/content/plants/gal_hosta_patriot_06.jpg"
+						data-fancybox="galleryplant" data-caption="Комбинируйте различные сорта хост, чтобы добавить объема">
+						<img class="plant-subject__image" src="images/content/plants/gal_hosta_patriot_06_preview.jpg"
+							alt="сад хоста">
+					</a>
+				</div>
+				<div class="plant-subject__box">
+					<a class="plant-subject__link" href="images/content/plants/gal_hosta_patriot_07.jpg"
+						data-fancybox="galleryplant"
+						data-caption="Хосты — отличный способ заполнить пространство без особых усилий">
+						<img class="plant-subject__image" src="images/content/plants/gal_hosta_patriot_07_preview.jpg"
+							alt="хосты вдоль дорожки">
+					</a>
+				</div>
+			</div>
+
+		</div>
+
+	</main>
+
+	<!-- Подвал страницы -->
+	<!-- Карусель фотографий со ссылкой на инстаграмм -->
+	<footer class="carousel">
+		<div class="owl-carousel owl-theme">
+			<img src="images/inst_astilbe.jpg" alt="Astilbe">
+			<img src="images/inst_blanket-flower.jpg" alt="Blanket Flower">
+			<img src="images/inst_autumn-fern.jpg" alt="Autumn Fern">
+			<img src="images/inst_japanese-aster.jpg" alt="Japanese Aster">
+			<img src="images/inst_japanese-forest-grass.jpg" alt="Japanese Forest Grass">
+			<img src="images/inst_snowdrop-anemone.jpg" alt="Snowdrop Anemone">
+			<img src="images/inst_blue-eyed-grass.jpg" alt="Blue Eyed Grass">
+			<img src="images/inst_calla-lily.jpg" alt="Calla Lily">
+			<img src="images/inst_coral-bells.jpg" alt="Coral Bells">
+			<img src="images/inst_dwarf-lobelia.jpg" alt="Dwarf Lobelia">
+			<img src="images/inst_dwarf-new-england-aster.jpg" alt="Dwarf New England Aster">
+			<img src="images/inst_daylily.jpg" alt="Daylily">
+			<img src="images/inst_lavender.jpg" alt="Lavender">
+			<img src="images/inst_japanese-onion.jpg" alt="Japanese Onion">
+		</div>
+		<a class="button button_link button_center" href="https://www.instagram.com/" target="_blank" title="instagram">
+			<span class="button__icon icon-instagram"></span>
+			<span class="button__text">Mariavilla</span>
+		</a>
+	</footer>
+
+	<!-- Верхняя часть подвала -->
+	<footer class="footer-top">
+		<div class="footer-top__logo">
+			<a class="logo" href="index.html">
+				<img class="logo__image" src="images/logo_mariavilla.svg" alt="Mariavilla">
+			</a>
+		</div>
+		<div class="footer-top__contacts">
+
+			<div class="contact">
+				<div class="contact__pic">
+					<span class="contact__icon icon-home-1"></span>
+				</div>
+				<div class="contact__data">
+					<span class="contact__type">Адрес:</span>
+					<span>222847, Минская обл., п.Марьино</span>
+				</div>
+			</div>
+
+			<div class="contact">
+				<div class="contact__pic">
+					<span class="contact__icon icon-mail"></span>
+				</div>
+				<div class="contact__data">
+					<span class="contact__type">E-mail:</span>
+					<a class="contact__link" href="mailto:contacts@mariavilla.com" title="Пишите нам!">contacts@mariavilla.com</a>
+				</div>
+			</div>
+
+			<div class="contact">
+				<div class="contact__pic">
+					<span class="contact__icon icon-mobile-2"></span>
+				</div>
+				<div class="contact__data">
+					<span class="contact__type">Телефон:</span>
+					<a class="contact__link" href="tel:+375293231211" title="Звоните нам!">+375 29 3231211</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<footer class="footer-bar"></footer>
+	<!-- Нижняя часть подвала -->
+	<footer class="footer-bottom">
+		<div class="footer-bottom__copyright">
+			<div class="copyriright">
+				<span>&copy; Mariavilla, 2022</span>
+			</div>
+		</div>
+		<!-- Блок социальных сетей -->
+		<div class="footer-bottom__socials">
+			<span>Мы в соцсетях:</span>
+			<ul class="socials">
+				<li class="socials__item">
+					<a class="socials__link" href="https://www.instagram.com/" target="_blank" title="instagram"><span
+							class="icon-instagram"></span></a>
+				</li>
+				<li class="socials__item">
+					<a class="socials__link" href="https://web.telegram.org/" target="_blank" title="telegram"><span
+							class="icon-telegram"></span></a>
+				</li>
+				<li class="socials__item">
+					<a class="socials__link" href="https://twitter.com/" target="_blank" title="twitter"><span
+							class="icon-twitter"></span></a>
+				</li>
+				<li class="socials__item">
+					<a class="socials__link" href="https://www.youtube.com/" target="_blank" title="youtube"><span
+							class="icon-youtube-play"></span></a>
+				</li>
+			</ul>
+		</div>
+	</footer>
+
+	<button class="button button_up" id="btnScrollUp" title="на верх страницы">
+		<span class="button__icon icon-up-open-big"></span>
+	</button>
+
+	<script src="scripts/jquery-3.6.1.min.js"></script>
+	<script src="scripts/jquery.fancybox.min.js"></script>
+	<script src="scripts/owl.carousel.min.js"></script>
+	<script src="scripts/scripts.js"></script>
+</body>
+
+</html>

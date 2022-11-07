@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Коллекция многолетних растений. Марьявилла</title>
+
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+
+	<link rel="stylesheet" href="styles/owl.carousel.min.css">
+	<link rel="stylesheet" href="styles/owl.theme.default.min.css">
+	<link rel="stylesheet" href="styles/fontello.css">
+	<link rel="stylesheet" href="styles/styles.css">
+
+</head>
+
+<body class="frame">
+	<!-- 
+		           Заголовок страницы
+	 -->
+
+	<!-- зелёная полоса во всю ширину экрана -->
+	<div class="top-bar"> </div>
+
+	<!-- 
+		Верхняя часть заголовка 
+	-->
+	<header class="header-top">
+
+		<!-- Блок информации -->
+		<ul class="info">
+			<li class="info__item info__item_phone">
+				<a class="info__link" href="tel:+375293231211" title="Звоните нам!">+375 29 3231211</a>
+			</li>
+			<li class="info__item info__item_email">
+				<a class="info__link" href="mailto:contacts@mariavilla.com" title="Пишите нам!">contacts@mariavilla.com</a>
+			</li>
+		</ul>
+
+		<!-- Блок социальных сетей -->
+		<ul class="socials">
+			<li class="socials__item">
+				<a class="socials__link" href="https://www.instagram.com/" target="_blank" title="instagram"><span
+						class="icon-instagram"></span></a>
+			</li>
+			<li class="socials__item">
+				<a class="socials__link" href="https://web.telegram.org/" target="_blank" title="telegram"><span
+						class="icon-telegram"></span></a>
+			</li>
+			<li class="socials__item">
+				<a class="socials__link" href="https://twitter.com/" target="_blank" title="twitter"><span
+						class="icon-twitter"></span></a>
+			</li>
+			<li class="socials__item">
+				<a class="socials__link" href="https://www.youtube.com/" target="_blank" title="youtube"><span
+						class="icon-youtube-play"></span></a>
+			</li>
+		</ul>
+	</header>
+
+
+	<!-- 
+		Нижняя часть заголовка с меню 
+	-->
+	<header class="header-bottom">
+		<!-- Блок с логотипом -->
+		<a class="logo" href="index.html">
+			<img class="logo__image" src="images/logo_mariavilla.svg" alt="Mariavilla">
+		</a>
+
+		<!-- Блок меню -->
+		<nav class="menu" id="mainMenu">
+			<ul class="menu__list">
+				<li class="menu__item menu__item_mobile">
+					<div class="menu__button-close">
+						<button class="button button_close" id="btnCloseMenu">
+							<span class="icon-cancel-2"></span>
+						</button>
+					</div>
+				</li>
+				<li class="menu__item menu__item_mobile">
+					<a class="logo logo_mobile" href="index.html">
+						<img class="logo__image" src="images/logo_mariavilla.svg" alt="Mariavilla">
+					</a>
+				</li>
+				<li class="menu__item">
+					<a class="menu__link" href="index.html">Главная</a>
+				</li>
+				<li class="menu__item">
+					<a class="menu__link" href="gallery.html">Галлерея</a>
+				</li>
+				<li class="menu__item">
+					<div class="menu__mobile">
+						<a class="menu__link" href="collection.html">Коллекция</a>
+						<button class="icon-down-open-big menu__icon" id="btnOpenCollection" onclick="openSubMenu(this)"></button>
+					</div>
+					<!-- Блок подменю -->
+					<div class="submenu" id="subMenuCollection">
+						<div class="submenu__box">
+							<div class="submenu__content">
+								<div class="submenu__title">Многолетние растения</div>
+								<ul class="submenu__list">
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu1-pic1" href="collection.html">Хосты</a>
+									</li>
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu1-pic2" href="collection.html">Розы</a>
+									</li>
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu1-pic3"
+											href="collection.html">Лилейники</a></li>
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu1-pic4" href="collection.html">Лилии</a>
+									</li>
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu1-pic5" href="collection.html">Ирисы</a>
+									</li>
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu1-pic6"
+											href="collection.html">Примулы</a></li>
+								</ul>
+							</div>
+							<div class="submenu__picture-box">
+								<img class="submenu__picture submenu__picture_show" id="subMenu1-pic1" src="images/sub_menu_hosta_01.jpg"
+									alt="">
+								<img class="submenu__picture" id="subMenu1-pic2" src="images/sub_menu_roses_01.jpg" alt="">
+								<img class="submenu__picture" id="subMenu1-pic3" src="images/sub_menu_daylily_01.jpg" alt="">
+								<img class="submenu__picture" id="subMenu1-pic4" src="images/sub_menu_lilies_01.jpg" alt="">
+								<img class="submenu__picture" id="subMenu1-pic5" src="images/sub_menu_iris_01.jpg" alt="">
+								<img class="submenu__picture" id="subMenu1-pic6" src="images/sub_menu_primula_01.jpg" alt="">
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="menu__item">
+					<a class="menu__link" href="about.html">О&nbsp;нас</a>
+				</li>
+				<li class="menu__item">
+					<a class="menu__link" href="contacts.html">Контакты</a>
+				</li>
+				<li class="menu__item">
+					<div class="menu__mobile">
+						<a class="menu__link" href="blog.html">Блог</a>
+						<button class="icon-down-open-big menu__icon" id="btnOpenBlog" onclick="openSubMenu(this)"></button>
+					</div>
+					<!-- Блок подменю -->
+					<div class="submenu" id="subMenuBlog">
+						<div class="submenu__box">
+							<div class="submenu__content">
+								<div class="submenu__title">Заметки о цветах</div>
+								<ul class="submenu__list">
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu2-pic1" href="blog.html">Интересно о цветах</a></li>
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu2-pic2" href="blog.html">Цветочная кулинария</a></li>
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu2-pic3" href="blog.html">Пряные травы</a></li>
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu2-pic4" href="blog.html">Уход за растениями</a></li>
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu2-pic5" href="blog.html">Болезни растений</a></li>
+								</ul>
+							</div>
+							<div class="submenu__picture-box">
+								<img class="submenu__picture submenu__picture_show" id="subMenu2-pic1" src="images/sub_menu_interesting_01.jpg" alt="">
+								<img class="submenu__picture" id="subMenu2-pic2" src="images/sub_menu_cooking_01.jpg" alt="">
+								<img class="submenu__picture" id="subMenu2-pic3" src="images/sub_menu_spices_01.jpg" alt="">
+								<img class="submenu__picture" id="subMenu2-pic4" src="images/sub_menu_care_01.jpg" alt="">
+								<img class="submenu__picture" id="subMenu2-pic5" src="images/sub_menu_disease_01.jpg" alt="">
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</nav>
+
+		<!-- Блок управления  (поиск, меню мобильное) -->
+		<div class="controls">
+			<!-- Блок поиска -->
+			<div class="search">
+				<form class="search__form">
+					<div class="search__input">
+						<input class="search__field" id="searchField" name="search" type="text" placeholder="Поиск&hellip;"
+							required>
+						<button class="search__button search__button_submit" id="btnSearchSubmt" type="submit">
+							<span class="icon-search-3 search__icon"></span>
+						</button>
+						<button class="search__button search__button_delete" id="btnSearchDelete" type="reset">
+							<span class="icon-cancel-2 search__icon"></span>
+						</button>
+					</div>
+				</form>
+			</div>
+
+			<div class="mobile">
+				<div class="mobile__search">
+					<button class="mobile__button mobile__button_search" onclick="toggleSearchField()">
+						<span class="icon-search-3 mobile__icon"></span>
+					</button>
+				</div>
+				<div class="mobile__menu">
+					<button class="mobile__button mobile__button_menu" id="btnOpenMenu">
+						<span class="icon-menu mobile__icon"></span>
+					</button>
+				</div>
+			</div>
+		</div>
+
+	</header>
+
+	<!-- 
+		Основная часть страницы 
+	 -->
+	<main class="collection-page">
+
+		<!-- Баннер на всю ширину вьюпорта сразу после шапки страницы -->
+		<div class="banner banner_collection banner_narrow">
+			<div class="banner__overlay">
+				<div class="banner__text">
+					<p class="banner__title">
+						Коллекция
+					</p>
+					<p class="banner__subtitle">
+						Многолетние растения
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Боковая панель с навигацией по разделу -->
+		<aside class="sidebar">
+			<nav class="side-menu">
+				<p class="side-menu__title">Многолетние растения</p>
+				<ul class="side-menu__list">
+					<li class="side-menu__item"><a class="side-menu__link" href="collection.html">
+							<span>Хосты</span>
+							<span>24</span>
+						</a></li>
+					<li class="side-menu__item"><a class="side-menu__link" href="collection.html">
+							<span>Розы</span>
+							<span>17</span>
+						</a></li>
+					<li class="side-menu__item"><a class="side-menu__link" href="collection.html">
+							<span>Лилейники</span>
+							<span>12</span>
+						</a></li>
+					<li class="side-menu__item"><a class="side-menu__link" href="collection.html">
+							<span>Лилии</span>
+							<span>9</span>
+						</a></li>
+					<li class="side-menu__item"><a class="side-menu__link" href="collection.html">
+							<span>Ирисы</span>
+							<span>11</span>
+						</a></li>
+					<li class="side-menu__item"><a class="side-menu__link" href="collection.html">
+							<span>Примулы</span>
+							<span>8</span>
+						</a></li>
+				</ul>
+			</nav>
+
+			<!-- Просмотренные ранее растения -->
+			<div class="recent-plants">
+				<p class="recent-plants__title">Просмотренные</p>
+				<ul class="recent-plants__list">
+					<li class="recent-plant">
+						<div class="recent-plant__thumb">
+							<img class="recent-plant__image" src="images/content/plants/gall_hosta-june_01.jpg"
+								alt="Хоста Джун Hosta June">
+						</div>
+						<div class="recent-plant__info">
+							<a class="recent-plant__title" href="plant.html">
+								Хоста &laquo;Джун&raquo;
+								<p class="recent-plant__latin">
+									Hosta June
+								</p>
+							</a>
+						</div>
+					</li>
+
+					<li class="recent-plant">
+						<div class="recent-plant__thumb">
+							<img class="recent-plant__image" src="images/content/plants/gall_primula-elator_01.jpg"
+								alt="Примула высокая Primula elator">
+						</div>
+						<div class="recent-plant__info">
+							<a class="recent-plant__title" href="plant.html">
+								Примула высокая
+								<p class="recent-plant__latin">
+									Primula elator
+								</p>
+							</a>
+						</div>
+					</li>
+
+					<li class="recent-plant">
+						<div class="recent-plant__thumb">
+							<img class="recent-plant__image" src="images/content/plants/gall_rose-graham-thomas_01.jpg"
+								alt="Роза Грэхам Томас Rose Graham Thomas">
+						</div>
+						<div class="recent-plant__info">
+							<a class="recent-plant__title" href="plant.html">
+								Роза &laquo;Грэхам Томас&raquo;
+								<p class="recent-plant__latin">
+									Rose Graham Thomas
+								</p>
+							</a>
+						</div>
+					</li>
+
+				</ul>
+			</div>
+
+		</aside>
+
+
+		<!-- Блок коллекции -->
+		<div class="collection">
+
+			<!-- Блок описания -->
+			<section class="section section_top">
+				<p class="section__subtitle">Идеальное украшение участка</p>
+				<h1 class="section__title">Преимущества многолетних растений</h1>
+				<p class="section__desc">
+					Любой сад или участок можно легко сделать красивым при помощи цветов. Цветущие все лето многолетники являются
+					универсальным средством для достижения этой цели.
+				</p>
+				<p class="section__desc">
+					Многолетние садовые цветы, которые радуют глаз на протяжении всего лета&nbsp;&mdash; это беспроигрышный
+					вариант. Такие растения переносят небольшие заморозки и зимние холода, неприхотливы в уходе и не нуждаются в
+					ежегодной высадке и дополнительном уходе.
+				</p>
+				<p class="section__desc">
+					Создание цветущих зон и клумб приятный, но нелегкий труд. Данный раздел может рассматриваться, как справочник:
+					в нём приведены фото и названия многолетних уличных растений, описаны их достоинства и особенности ухода.
+				</p>
+			</section>
+
+			<div class="collection-wrap">
+
+				<div class="box-item">
+					<div class="box-item__thumb">
+						<img class="box-item__image" src="images/content/plants/cat_hosta-patriot_01.jpg"
+							alt="Хоста гибридная Патриот Hosta hybrida Patriot">
+					</div>
+					<a class="box-item__link" href="plant.html">
+						<p class="box-item__name">Хоста гибридная &laquo;Патриот&raquo;</p>
+						<p class="box-item__latin">Hosta hybrida Patriot</p>
+					</a>
+					<div class="box-item__action">
+						<a class="box-item__link" href="javascript: openModalWindow();" title="Быстрый просмотр">
+							<span class="box-item__icon icon-eye"></span>
+						</a>
+					</div>
+				</div>
+
+				<div class="box-item">
+					<div class="box-item__thumb">
+						<img class="box-item__image" src="images/content/plants/cat_campanula-persicifolia_01.jpg"
+							alt="Колокольчик персиколистный">
+					</div>
+					<a class="box-item__link" href="plant.html">
+						<p class="box-item__name">Колокольчик персиколистный Campanula persicifolia</p>
+						<p class="box-item__latin">Campanula persicifolia</p>
+					</a>
+					<div class="box-item__action">
+						<a class="box-item__link" href="javascript: openModalWindow();" title="Быстрый просмотр">
+							<span class="box-item__icon icon-eye"></span>
+						</a>
+					</div>
+				</div>
+
+				<div class="box-item">
+					<div class="box-item__thumb">
+						<img class="box-item__image" src="images/content/plants/cat_hosta-albomarginata_01.jpg"
+							alt="Хоста Альбомаргината Hosta undulata Albomarginata">
+					</div>
+					<a class="box-item__link" href="plant.html">
+						<p class="box-item__name">Хоста &laquo;Альбомаргината&raquo;</p>
+						<p class="box-item__latin">Hosta undulata Albomarginata</p>
+					</a>
+					<div class="box-item__action">
+						<a class="box-item__link" href="javascript: openModalWindow();" title="Быстрый просмотр">
+							<span class="box-item__icon icon-eye"></span>
+						</a>
+					</div>
+				</div>
+
+				<div class="box-item">
+					<div class="box-item__thumb">
+						<img class="box-item__image" src="images/content/plants/cat_indian-giver_01.jpg"
+							alt="Лилейник Индиан Гивер Hemerocállis Indian Giver">
+					</div>
+					<a class="box-item__link" href="plant.html">
+						<p class="box-item__name">Лилейник &laquo;Индиан Гивер&raquo;</p>
+						<p class="box-item__latin">Hemerocállis Indian Giver</p>
+					</a>
+					<div class="box-item__action">
+						<a class="box-item__link" href="javascript: openModalWindow();" title="Быстрый просмотр">
+							<span class="box-item__icon icon-eye"></span>
+						</a>
+					</div>
+				</div>
+
+
+				<div class="box-item">
+					<div class="box-item__thumb">
+						<img class="box-item__image" src="images/content/plants/cat_lily-mister-cas_01.jpg"
+							alt="Лилия Мистер Кас Lilium Mister Cas">
+					</div>
+					<a class="box-item__link" href="plant.html">
+						<p class="box-item__name">Лилия &laquo;Мистер Кас&raquo;</p>
+						<p class="box-item__latin">Lilium Mister Cas</p>
+					</a>
+					<div class="box-item__action">
+						<a class="box-item__link" href="javascript: openModalWindow();" title="Быстрый просмотр">
+							<span class="box-item__icon icon-eye"></span>
+						</a>
+					</div>
+				</div>
+
+				<div class="box-item">
+					<div class="box-item__thumb">
+						<img class="box-item__image" src="images/content/plants/cat_rose-geoff-hamilton_01.jpg"
+							alt="Роза Джеф Гамильтон Rose Geoff Hamilton">
+					</div>
+					<a class="box-item__link" href="plant.html">
+						<p class="box-item__name">Роза &laquo;Джеф Гамильтон&raquo;</p>
+						<p class="box-item__latin">Rose Geoff Hamilton</p>
+					</a>
+					<div class="box-item__action">
+						<a class="box-item__link" href="javascript: openModalWindow();" title="Быстрый просмотр">
+							<span class="box-item__icon icon-eye"></span>
+						</a>
+					</div>
+				</div>
+
+				<div class="box-item">
+					<div class="box-item__thumb">
+						<img class="box-item__image" src="images/content/plants/cat_iris-alida_01.jpg"
+							alt="Ирис Алида Iris reticulata Alida">
+					</div>
+					<a class="box-item__link" href="plant.html">
+						<p class="box-item__name">Ирис &laquo;Алида&raquo;</p>
+						<p class="box-item__latin">Iris reticulata Alida</p>
+					</a>
+					<div class="box-item__action">
+						<a class="box-item__link" href="javascript: openModalWindow();" title="Быстрый просмотр">
+							<span class="box-item__icon icon-eye"></span>
+						</a>
+					</div>
+				</div>
+
+				<div class="box-item">
+					<div class="box-item__thumb">
+						<img class="box-item__image" src="images/content/plants/cat_rose-etrusca_01.jpg"
+							alt="Роза Этруска Rosa Etrusca">
+					</div>
+					<a class="box-item__link" href="plant.html">
+						<p class="box-item__name">Роза &laquo;Этруска&raquo;</p>
+						<p class="box-item__latin">Rosa Etrusca</p>
+					</a>
+					<div class="box-item__action">
+						<a class="box-item__link" href="javascript: openModalWindow();" title="Быстрый просмотр">
+							<span class="box-item__icon icon-eye"></span>
+						</a>
+					</div>
+				</div>
+
+				<div class="box-item">
+					<div class="box-item__thumb">
+						<img class="box-item__image" src="images/content/plants/cat_hosta-aureomarginata_01.jpg"
+							alt="Хоста Ауреомаргината Hosta fortunei Aureomarginata">
+					</div>
+					<a class="box-item__link" href="plant.html">
+						<p class="box-item__name">Хоста &laquo;Ауреомаргината&raquo;</p>
+						<p class="box-item__latin">Hosta fortunei Aureomarginata</p>
+					</a>
+					<div class="box-item__action">
+						<a class="box-item__link" href="javascript: openModalWindow();" title="Быстрый просмотр">
+							<span class="box-item__icon icon-eye"></span>
+						</a>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- Пагинатор -->
+			<nav class="pagination">
+				<ul class="pagination__list">
+					<li class="pagination__item"><a class="pagination__link pagination__link_current" href="collection.html">1</a>
+					</li>
+					<li class="pagination__item"><a class="pagination__link" href="collection.html">2</a></li>
+					<li class="pagination__item"><a class="pagination__link" href="collection.html">3</a></li>
+					<li class="pagination__item"><a class="pagination__link" href="collection.html"><span
+								class="icon-right-open-big"></span></a></li>
+				</ul>
+			</nav>
+		</div>
+	</main>
+
+
+	<!-- Модальное окно быстрого просмотра краткого описания растения  -->
+	<div class="quick-view-shadow" onclick="closeModalWindow()"></div>
+	<div class="quick-view">
+		<div class="quick-view__box">
+			<button class="button button_close" id="btnCloseModalWindow" onclick="closeModalWindow()">
+				<span class="icon-cancel-2"></span>
+			</button>
+			<!-- Блок описания растенния -->
+			<!-- Блок превьюшек -->
+			<div class="plant-thumbs plant-thumbs_modal">
+				<div class="plant-thumbs__thumb plant-thumbs__thumb_hide">
+					<img class="plant-thumbs__image" src="images/content/plants/hosta_patriot_01_thumb.jpg" data-id="pic1"
+						onclick="togglePreviewImage(this)" alt="Хоста">
+				</div>
+				<div class="plant-thumbs__thumb">
+					<img class="plant-thumbs__image" src="images/content/plants/hosta_patriot_02_thumb.jpg" data-id="pic2"
+						onclick="togglePreviewImage(this)" alt="Хоста Патриот">
+				</div>
+				<div class="plant-thumbs__thumb">
+					<img class="plant-thumbs__image" src="images/content/plants/hosta_patriot_03_thumb.jpg" data-id="pic3"
+						onclick="togglePreviewImage(this)" alt="Хоста гибридная Патриот">
+				</div>
+				<div class="plant-thumbs__thumb">
+					<img class="plant-thumbs__image" src="images/content/plants/hosta_patriot_04_thumb.jpg" data-id="pic4"
+						onclick="togglePreviewImage(this)" alt="Хоста">
+				</div>
+			</div>
+
+			<!-- Блок изображенения -->
+			<div class="plant-picture plant-picture_modal">
+				<img class="plant-picture__image plant-picture_hide" id="pic4"
+					src="images/content/plants/hosta_patriot_04_preview.jpg" alt="Хоста Патриот Hosta hybrida Patriot">
+				<img class="plant-picture__image plant-picture_hide" id="pic3"
+					src="images/content/plants/hosta_patriot_03_preview.jpg" alt="Хоста Патриот Hosta hybrida Patriot">
+				<img class="plant-picture__image plant-picture_hide" id="pic2"
+					src="images/content/plants/hosta_patriot_02_preview.jpg" alt="Хоста Патриот Hosta hybrida Patriot">
+				<img class="plant-picture__image" id="pic1" src="images/content/plants/hosta_patriot_01_preview.jpg"
+					alt="Хоста Патриот Hosta hybrida Patriot">
+			</div>
+
+			<!-- Блок краткого описания -->
+			<div class="plant-desc plant-desc_modal">
+				<p class="plant-desc__title">Хоста гибридная &laquo;Патриот&raquo;</p>
+				<p class="plant-desc__latin">Hosta hybrida Patriot</p>
+
+				<p class="plant-desc__text">
+					Хоста &laquo;Патриот&raquo;&nbsp;&mdash; многолетняя травянистая культура, которая ценится за высокие
+					декоративные качества. При этом растение сохраняет привлекательный внешний вид на протяжении всего сезона.
+					Эта
+					гибридная форма отличается контрастным оттенком листьев, поэтому заметно выделяется на фоне остальных видов.
+				</p>
+				<div class="plant-desc__features">
+					<p class="plant-desc__feature">
+						<strong>Класс:</strong> многолетние растения
+					</p>
+					<p class="plant-desc__feature">
+						<strong>Цветение:</strong> декоративнолистные
+					</p>
+					<p class="plant-desc__feature">
+						<strong>Размер цветка:</strong> до 8 см
+					</p>
+					<p class="plant-desc__feature">
+						<strong>Высота растения:</strong> до 70 см
+					</p>
+					<p class="plant-desc__feature">
+						<strong>Отношение к свету:</strong> теневыносливое
+					</p>
+					<p class="plant-desc__feature">
+						<strong>Зимостойкость:</strong> высокая
+					</p>
+				</div>
+
+				<div class="quick-view__links">
+					<div class="share-link">
+						<span>Поделиться:</span>
+						<ul class="socials">
+							<li class="socials__item">
+								<a class="socials__link" href="https://www.instagram.com/" target="_blank" title="instagram"><span
+										class="icon-instagram"></span></a>
+							</li>
+							<li class="socials__item">
+								<a class="socials__link" href="https://web.telegram.org/" target="_blank" title="telegram"><span
+										class="icon-telegram"></span></a>
+							</li>
+							<li class="socials__item">
+								<a class="socials__link" href="https://twitter.com/" target="_blank" title="twitter"><span
+										class="icon-twitter"></span></a>
+							</li>
+						</ul>
+					</div>
+					<a class="button button_link button_modal" href="plant.html">
+						<span class="button__text">Перейти</span>
+						<span class="button__icon icon-right"></span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Подвал страницы -->
+	<!-- Карусель фотографий со ссылкой на инстаграмм -->
+	<footer class="carousel">
+		<div class="owl-carousel owl-theme">
+			<img src="images/inst_astilbe.jpg" alt="Astilbe">
+			<img src="images/inst_blanket-flower.jpg" alt="Blanket Flower">
+			<img src="images/inst_autumn-fern.jpg" alt="Autumn Fern">
+			<img src="images/inst_japanese-aster.jpg" alt="Japanese Aster">
+			<img src="images/inst_japanese-forest-grass.jpg" alt="Japanese Forest Grass">
+			<img src="images/inst_snowdrop-anemone.jpg" alt="Snowdrop Anemone">
+			<img src="images/inst_blue-eyed-grass.jpg" alt="Blue Eyed Grass">
+			<img src="images/inst_calla-lily.jpg" alt="Calla Lily">
+			<img src="images/inst_coral-bells.jpg" alt="Coral Bells">
+			<img src="images/inst_dwarf-lobelia.jpg" alt="Dwarf Lobelia">
+			<img src="images/inst_dwarf-new-england-aster.jpg" alt="Dwarf New England Aster">
+			<img src="images/inst_daylily.jpg" alt="Daylily">
+			<img src="images/inst_lavender.jpg" alt="Lavender">
+			<img src="images/inst_japanese-onion.jpg" alt="Japanese Onion">
+		</div>
+		<a class="button button_link button_center" href="https://www.instagram.com/" target="_blank" title="instagram">
+			<span class="button__icon icon-instagram"></span>
+			<span class="button__text">Mariavilla</span>
+		</a>
+	</footer>
+
+	<!-- Верхняя часть подвала -->
+	<footer class="footer-top">
+		<div class="footer-top__logo">
+			<a class="logo" href="index.html">
+				<img class="logo__image" src="images/logo_mariavilla.svg" alt="Mariavilla">
+			</a>
+		</div>
+		<div class="footer-top__contacts">
+
+			<div class="contact">
+				<div class="contact__pic">
+					<span class="contact__icon icon-home-1"></span>
+				</div>
+				<div class="contact__data">
+					<span class="contact__type">Адрес:</span>
+					<span>222847, Минская обл., п.Марьино</span>
+				</div>
+			</div>
+
+			<div class="contact">
+				<div class="contact__pic">
+					<span class="contact__icon icon-mail"></span>
+				</div>
+				<div class="contact__data">
+					<span class="contact__type">E-mail:</span>
+					<a class="contact__link" href="mailto:contacts@mariavilla.com" title="Пишите нам!">contacts@mariavilla.com</a>
+				</div>
+			</div>
+
+			<div class="contact">
+				<div class="contact__pic">
+					<span class="contact__icon icon-mobile-2"></span>
+				</div>
+				<div class="contact__data">
+					<span class="contact__type">Телефон:</span>
+					<a class="contact__link" href="tel:+375293231211" title="Звоните нам!">+375 29 3231211</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<footer class="footer-bar"> </footer>
+	<!-- Нижняя часть подвала -->
+	<footer class="footer-bottom">
+		<div class="footer-bottom__copyright">
+			<div class="copyriright">
+				<span>&copy; Mariavilla, 2022</span>
+			</div>
+		</div>
+		<!-- Блок социальных сетей -->
+		<div class="footer-bottom__socials">
+			<span>Мы в соцсетях:</span>
+			<ul class="socials">
+				<li class="socials__item">
+					<a class="socials__link" href="https://www.instagram.com/" target="_blank" title="instagram"><span
+							class="icon-instagram"></span></a>
+				</li>
+				<li class="socials__item">
+					<a class="socials__link" href="https://web.telegram.org/" target="_blank" title="telegram"><span
+							class="icon-telegram"></span></a>
+				</li>
+				<li class="socials__item">
+					<a class="socials__link" href="https://twitter.com/" target="_blank" title="twitter"><span
+							class="icon-twitter"></span></a>
+				</li>
+				<li class="socials__item">
+					<a class="socials__link" href="https://www.youtube.com/" target="_blank" title="youtube"><span
+							class="icon-youtube-play"></span></a>
+				</li>
+			</ul>
+		</div>
+	</footer>
+
+	<button class="button button_up" id="btnScrollUp" title="на верх страницы">
+		<span class="button__icon icon-up-open-big"></span>
+	</button>
+
+	<script src="scripts/jquery-3.6.1.min.js"></script>
+	<script src="scripts/owl.carousel.min.js"></script>
+	<script src="scripts/scripts.js"></script>
+</body>
+
+</html>

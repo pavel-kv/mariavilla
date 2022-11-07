@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Блог - заметки о растениях. Марьявилла</title>
+
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+
+	<link rel="stylesheet" href="styles/owl.carousel.min.css">
+	<link rel="stylesheet" href="styles/owl.theme.default.min.css">
+	<link rel="stylesheet" href="styles/fontello.css">
+	<link rel="stylesheet" href="styles/styles.css">
+
+</head>
+
+<body class="frame">
+	<!-- 
+		           Заголовок страницы
+	 -->
+
+	<!-- зелёная полоса во всю ширину экрана -->
+	<div class="top-bar"> </div>
+
+	<!-- 
+		Верхняя часть заголовка 
+	-->
+	<header class="header-top">
+
+		<!-- Блок информации -->
+		<ul class="info">
+			<li class="info__item info__item_phone">
+				<a class="info__link" href="tel:+375293231211" title="Звоните нам!">+375 29 3231211</a>
+			</li>
+			<li class="info__item info__item_email">
+				<a class="info__link" href="mailto:contacts@mariavilla.com" title="Пишите нам!">contacts@mariavilla.com</a>
+			</li>
+		</ul>
+
+		<!-- Блок социальных сетей -->
+		<ul class="socials">
+			<li class="socials__item">
+				<a class="socials__link" href="https://www.instagram.com/" target="_blank" title="instagram"><span
+						class="icon-instagram"></span></a>
+			</li>
+			<li class="socials__item">
+				<a class="socials__link" href="https://web.telegram.org/" target="_blank" title="telegram"><span
+						class="icon-telegram"></span></a>
+			</li>
+			<li class="socials__item">
+				<a class="socials__link" href="https://twitter.com/" target="_blank" title="twitter"><span
+						class="icon-twitter"></span></a>
+			</li>
+			<li class="socials__item">
+				<a class="socials__link" href="https://www.youtube.com/" target="_blank" title="youtube"><span
+						class="icon-youtube-play"></span></a>
+			</li>
+		</ul>
+	</header>
+
+
+	<!-- 
+		Нижняя часть заголовка с меню 
+	-->
+	<header class="header-bottom">
+		<!-- Блок с логотипом -->
+		<a class="logo" href="index.html">
+			<img class="logo__image" src="images/logo_mariavilla.svg" alt="Mariavilla">
+		</a>
+
+		<!-- Блок меню -->
+		<nav class="menu" id="mainMenu">
+			<ul class="menu__list">
+				<li class="menu__item menu__item_mobile">
+					<div class="menu__button-close">
+						<button class="button button_close" id="btnCloseMenu">
+							<span class="icon-cancel-2"></span>
+						</button>
+					</div>
+				</li>
+				<li class="menu__item menu__item_mobile">
+					<a class="logo logo_mobile" href="index.html">
+						<img class="logo__image" src="images/logo_mariavilla.svg" alt="Mariavilla">
+					</a>
+				</li>
+				<li class="menu__item">
+					<a class="menu__link" href="index.html">Главная</a>
+				</li>
+				<li class="menu__item">
+					<a class="menu__link" href="gallery.html">Галлерея</a>
+				</li>
+				<li class="menu__item">
+					<div class="menu__mobile">
+						<a class="menu__link" href="collection.html">Коллекция</a>
+						<button class="icon-down-open-big menu__icon" id="btnOpenCollection" onclick="openSubMenu(this)"></button>
+					</div>
+					<!-- Блок подменю -->
+					<div class="submenu" id="subMenuCollection">
+						<div class="submenu__box">
+							<div class="submenu__content">
+								<div class="submenu__title">Многолетние растения</div>
+								<ul class="submenu__list">
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu1-pic1"
+											href="collection.html">Хосты</a>
+									</li>
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu1-pic2"
+											href="collection.html">Розы</a>
+									</li>
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu1-pic3"
+											href="collection.html">Лилейники</a></li>
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu1-pic4"
+											href="collection.html">Лилии</a>
+									</li>
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu1-pic5"
+											href="collection.html">Ирисы</a>
+									</li>
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu1-pic6"
+											href="collection.html">Примулы</a></li>
+								</ul>
+							</div>
+							<div class="submenu__picture-box">
+								<img class="submenu__picture submenu__picture_show" id="subMenu1-pic1"
+									src="images/sub_menu_hosta_01.jpg" alt="">
+								<img class="submenu__picture" id="subMenu1-pic2" src="images/sub_menu_roses_01.jpg" alt="">
+								<img class="submenu__picture" id="subMenu1-pic3" src="images/sub_menu_daylily_01.jpg" alt="">
+								<img class="submenu__picture" id="subMenu1-pic4" src="images/sub_menu_lilies_01.jpg" alt="">
+								<img class="submenu__picture" id="subMenu1-pic5" src="images/sub_menu_iris_01.jpg" alt="">
+								<img class="submenu__picture" id="subMenu1-pic6" src="images/sub_menu_primula_01.jpg" alt="">
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="menu__item">
+					<a class="menu__link" href="about.html">О&nbsp;нас</a>
+				</li>
+				<li class="menu__item">
+					<a class="menu__link" href="contacts.html">Контакты</a>
+				</li>
+				<li class="menu__item">
+					<div class="menu__mobile">
+						<a class="menu__link" href="blog.html">Блог</a>
+						<button class="icon-down-open-big menu__icon" id="btnOpenBlog" onclick="openSubMenu(this)"></button>
+					</div>
+					<!-- Блок подменю -->
+					<div class="submenu" id="subMenuBlog">
+						<div class="submenu__box">
+							<div class="submenu__content">
+								<div class="submenu__title">Заметки о цветах</div>
+								<ul class="submenu__list">
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu2-pic1" href="blog.html">Интересно
+											о цветах</a></li>
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu2-pic2" href="blog.html">Цветочная
+											кулинария</a></li>
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu2-pic3" href="blog.html">Пряные
+											травы</a></li>
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu2-pic4" href="blog.html">Уход за
+											растениями</a></li>
+									<li class="submenu__item"><a class="submenu__link" data-id="subMenu2-pic5" href="blog.html">Болезни
+											растений</a></li>
+								</ul>
+							</div>
+							<div class="submenu__picture-box">
+								<img class="submenu__picture submenu__picture_show" id="subMenu2-pic1"
+									src="images/sub_menu_interesting_01.jpg" alt="">
+								<img class="submenu__picture" id="subMenu2-pic2" src="images/sub_menu_cooking_01.jpg" alt="">
+								<img class="submenu__picture" id="subMenu2-pic3" src="images/sub_menu_spices_01.jpg" alt="">
+								<img class="submenu__picture" id="subMenu2-pic4" src="images/sub_menu_care_01.jpg" alt="">
+								<img class="submenu__picture" id="subMenu2-pic5" src="images/sub_menu_disease_01.jpg" alt="">
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</nav>
+
+		<!-- Блок управления  (поиск, меню мобильное) -->
+		<div class="controls">
+			<!-- Блок поиска -->
+			<div class="search">
+				<form class="search__form">
+					<div class="search__input">
+						<input class="search__field" id="searchField" name="search" type="text" placeholder="Поиск&hellip;"
+							required>
+						<button class="search__button search__button_submit" id="btnSearchSubmt" type="submit">
+							<span class="icon-search-3 search__icon"></span>
+						</button>
+						<button class="search__button search__button_delete" id="btnSearchDelete" type="reset">
+							<span class="icon-cancel-2 search__icon"></span>
+						</button>
+					</div>
+				</form>
+			</div>
+
+			<div class="mobile">
+				<div class="mobile__search">
+					<button class="mobile__button mobile__button_search" onclick="toggleSearchField()">
+						<span class="icon-search-3 mobile__icon"></span>
+					</button>
+				</div>
+				<div class="mobile__menu">
+					<button class="mobile__button mobile__button_menu" id="btnOpenMenu">
+						<span class="icon-menu mobile__icon"></span>
+					</button>
+				</div>
+			</div>
+		</div>
+
+	</header>
+
+	<!-- 
+		Основная часть страницы 
+	 -->
+	<main class="blog-page">
+
+		<!-- Баннер на всю ширину вьюпорта сразу после шапки страницы -->
+		<div class="banner banner_blog banner_narrow">
+			<div class="banner__overlay">
+				<div class="banner__text">
+					<h1 class="banner__title">
+						Блог
+					</h1>
+					<p class="banner__subtitle">
+						Заметки о растениях
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Боковая панель с навигацией по разделу -->
+		<aside class="sidebar">
+			<nav class="side-menu">
+				<p class="side-menu__title">Заметки о растениях</p>
+				<ul class="side-menu__list">
+					<li class="side-menu__item"><a class="side-menu__link" href="blog.html">
+							<span>Интересно о цветах</span>
+							<span>12</span>
+						</a></li>
+					<li class="side-menu__item"><a class="side-menu__link" href="blog.html">
+							<span>Цветочная кулинария</span>
+							<span>11</span>
+						</a></li>
+					<li class="side-menu__item"><a class="side-menu__link" href="blog.html">
+							<span>Пряные травы</span>
+							<span>9</span>
+						</a></li>
+					<li class="side-menu__item"><a class="side-menu__link" href="blog.html">
+							<span>Уход за растениями</span>
+							<span>14</span>
+						</a></li>
+					<li class="side-menu__item"><a class="side-menu__link" href="blog.html">
+							<span>Болезни растений</span>
+							<span>7</span>
+						</a></li>
+				</ul>
+			</nav>
+
+			<!-- Просмотренные заметки -->
+			<div class="recent-notes">
+				<p class="recent-notes__title">Просмотренные</p>
+				<ul class="recent-notes__list">
+					<li class="recent-note">
+						<div class="recent-note__thumb">
+							<img class="recent-note__image" src="images/content/blog/recent_note-01.jpg" alt="lavender">
+						</div>
+						<div class="recent-note__info">
+							<a class="recent-note__title" href="blog-post.html">
+								Растения для приготовления домашних ликеров
+							</a>
+							<time class="recent-note__date" datetime="2022-04-15">18 июня 2022</time>
+						</div>
+					</li>
+
+					<li class="recent-note">
+						<div class="recent-note__thumb">
+							<img class="recent-note__image" src="images/content/blog/recent_note-02.jpg" alt="rose">
+						</div>
+						<div class="recent-note__info">
+							<a class="recent-note__title" href="blog-post.html">
+								Ухаживаем за розами после цветения
+							</a>
+							<time class="recent-note__date" datetime="2022-04-15">6 мая 2022</time>
+						</div>
+					</li>
+
+					<li class="recent-note">
+						<div class="recent-note__thumb">
+							<img class="recent-note__image" src="images/content/blog/recent_note-03.jpg" alt="perennials">
+						</div>
+						<div class="recent-note__info">
+							<a class="recent-note__title" href="blog-post.html">
+								Проблемы многолетних цветников и как их решить
+							</a>
+							<time class="recent-note__date" datetime="2022-04-15">12 апреля 2022</time>
+						</div>
+					</li>
+
+					<li class="recent-note">
+						<div class="recent-note__thumb">
+							<img class="recent-note__image" src="images/content/blog/recent_note-04.jpg" alt="garden">
+						</div>
+						<div class="recent-note__info">
+							<a class="recent-note__title" href="blog-post.html">
+								Гармония цвета — как сделать сад более привлекательным
+							</a>
+							<time class="recent-note__date" datetime="2022-04-15">4 марта 2022</time>
+						</div>
+					</li>
+
+				</ul>
+			</div>
+
+		</aside>
+
+		<!-- Заметки в блоге с сылками на статью -->
+		<div class="notes">
+
+			<div class="note note_row">
+				<div class="note__thumb">
+					<img class="note__image" src="images/content/blog/blog_notes-01.jpg"
+						alt="Посконник пятнистый Eupatorium maculatum Mask">
+				</div>
+				<div class="note__info">
+
+					<div class="chapter">
+						<div class="chapter__thumb">
+							<img class="chapter__image" src="images/blog_cat_plant-care.png" alt="">
+						</div>
+						<div class="chapter__text">
+							<p class="chapter__title">Уход за растениями</p>
+							<span class="chapter__icon icon-calendar-1"></span>
+							<time class="note__date" datetime="2022-07-15">15 июля 2022</time>
+						</div>
+					</div>
+					<h2 class="note__title">
+						<a class="note__title-link" href="blog-post.html">
+							Многолетники&nbsp;&mdash; как выращивать и использовать
+						</a>
+					</h2>
+					<p class="note__text">
+						Как использовать многолетние цветы и растения для цветения вашего сада из года в год&hellip;
+						<a class="note__link" href="blog-post.html">Читать&nbsp;далее <span class="icon-right"></span></a>
+					</p>
+				</div>
+			</div>
+
+			<div class="note note_row">
+				<div class="note__thumb">
+					<img class="note__image" src="images/content/blog/blog_notes-02.jpg" alt="Сальвия мучнистая Salvia farinacea">
+				</div>
+				<div class="note__info">
+
+					<div class="chapter">
+						<div class="chapter__thumb">
+							<img class="chapter__image" src="images/blog_cat_plant-disease.png" alt="">
+						</div>
+						<div class="chapter__text">
+							<p class="chapter__title">Болезни растений</p>
+							<span class="chapter__icon icon-calendar-1"></span>
+							<time class="note__date" datetime="2022-05-27">27 мая 2022</time>
+						</div>
+					</div>
+					<h2 class="note__title">
+						<a class="note__title-link" href="blog-post.html">
+							Как защитить цветы от болезней
+						</a>
+					</h2>
+					<p class="note__text">
+						Садоводы с большой любовью выращивают разнообразные цветочные культуры. Но даже у самых опытных из них
+						растения иногда болеют&hellip;
+						<a class="note__link" href="blog-post.html">Читать&nbsp;далее <span class="icon-right"></span></a>
+					</p>
+				</div>
+			</div>
+
+			<div class="note note_row">
+				<div class="note__thumb">
+					<img class="note__image" src="images/content/blog/blog_notes-06.jpg" alt="Съедобные цветы фиалка настурция">
+				</div>
+				<div class="note__info">
+
+					<div class="chapter">
+						<div class="chapter__thumb">
+							<img class="chapter__image" src="images/blog_cat_plant-cooking.png" alt="">
+						</div>
+						<div class="chapter__text">
+							<p class="chapter__title">Цветочная кулинария</p>
+							<span class="chapter__icon icon-calendar-1"></span>
+							<time class="note__date" datetime="2022-05-12">12 мая 2022</time>
+						</div>
+					</div>
+					<h2 class="note__title">
+						<a class="note__title-link" href="blog-post.html">
+							Съедобные цветы и схема посадки французского огорода
+						</a>
+					</h2>
+					<p class="note__text">
+						Планируя витаминные грядки на своём участке, многие и не догадываются, что, помимо салатной зелени, пряных
+						трав и овощей, в пищу могут быть пригодны и некоторые декоративные цветы&hellip;
+						<a class="note__link" href="blog-post.html">Читать&nbsp;далее <span class="icon-right"></span></a>
+					</p>
+				</div>
+			</div>
+
+			<div class="note note_row">
+				<div class="note__thumb">
+					<img class="note__image" src="images/content/blog/blog_notes-03.jpg"
+						alt="Тысячелистник обыкновенный Achillea millefolium">
+				</div>
+				<div class="note__info">
+
+					<div class="chapter">
+						<div class="chapter__thumb">
+							<img class="chapter__image" src="images/blog_cat_plant-care.png" alt="">
+						</div>
+						<div class="chapter__text">
+							<p class="chapter__title">Уход за растениями</p>
+							<span class="chapter__icon icon-calendar-1"></span>
+							<time class="note__date" datetime="2022-04-18">18 апреля 2022</time>
+						</div>
+					</div>
+					<h2 class="note__title">
+						<a class="note__title-link" href="blog-post.html">
+							Неприхотливые многолетники в вашем саду
+						</a>
+					</h2>
+					<p class="note__text">
+						Тенистое, солнечное, сухое или ветреное место&nbsp;&mdash; в любых условиях выращивания найдется растение,
+						которое будет процветать при вашем уходе&hellip;
+						<a class="note__link" href="blog-post.html">Читать&nbsp;далее <span class="icon-right"></span></a>
+					</p>
+				</div>
+			</div>
+
+			<div class="note note_row">
+				<div class="note__thumb">
+					<img class="note__image" src="images/content/blog/blog_notes-04.jpg" alt="Лаванда lavander">
+				</div>
+				<div class="note__info">
+
+					<div class="chapter">
+						<div class="chapter__thumb">
+							<img class="chapter__image" src="images/blog_cat_plant-cooking.png" alt="">
+						</div>
+						<div class="chapter__text">
+							<p class="chapter__title">Цветочная кулинария</p>
+							<span class="chapter__icon icon-calendar-1"></span>
+							<time class="chapter__date" datetime="2022-04-05">5 апреля 2022</time>
+						</div>
+					</div>
+					<h2 class="note__title">
+						<a class="note__title-link" href="blog-post.html">
+							16 растений, цветки которых и красивы, и вкусны
+						</a>
+					</h2>
+					<p class="note__text">
+						Концепция использования свежих цветов в пищу не нова. Цветочная кулинария восходит к римским временам, а
+						также к китайской, ближневосточной и индийской традиционным культурам&hellip;
+						<a class="note__link" href="blog-post.html">Читать&nbsp;далее <span class="icon-right"></span></a>
+					</p>
+				</div>
+			</div>
+
+
+			<div class="note note_row">
+				<div class="note__thumb">
+					<img class="note__image" src="images/content/blog/blog_notes-05.jpg" alt="Плетистая роза rose">
+				</div>
+				<div class="note__info">
+
+					<div class="chapter">
+						<div class="chapter__thumb">
+							<img class="chapter__image" src="images/blog_cat_plant-care.png" alt="">
+						</div>
+						<div class="chapter__text">
+							<p class="chapter__title">Уход за растениями</p>
+							<span class="chapter__icon icon-calendar-1"></span>
+							<time class="note__date" datetime="2022-03-24">24 марта 2022</time>
+						</div>
+					</div>
+					<h2 class="note__title">
+						<a class="note__title-link" href="blog-post.html">
+							Как сделать красивый розарий на дачном участке
+						</a>
+					</h2>
+					<p class="note__text">
+						В мире существует множество восхитительных цветов, роза, вне всякого сомнения, занимает особое положение и
+						является царицей среди садовых декоративных растений&hellip;
+						<a class="note__link" href="blog-post.html">Читать&nbsp;далее <span class="icon-right"></span></a>
+					</p>
+				</div>
+			</div>
+
+			<!-- Пагинатор -->
+			<nav class="pagination">
+				<ul class="pagination__list">
+					<li class="pagination__item"><a class="pagination__link pagination__link_current" href="blog.html">1</a></li>
+					<li class="pagination__item"><a class="pagination__link" href="blog.html">2</a></li>
+					<li class="pagination__item"><a class="pagination__link" href="blog.html">3</a></li>
+					<li class="pagination__item"><a class="pagination__link" href="blog.html"><span
+								class="icon-right-open-big"></span></a></li>
+				</ul>
+			</nav>
+
+		</div>
+
+	</main>
+
+	<!-- Подвал страницы -->
+	<!-- Карусель фотографий со ссылкой на инстаграмм -->
+	<footer class="carousel">
+		<div class="owl-carousel owl-theme">
+			<img src="images/inst_astilbe.jpg" alt="Astilbe">
+			<img src="images/inst_blanket-flower.jpg" alt="Blanket Flower">
+			<img src="images/inst_autumn-fern.jpg" alt="Autumn Fern">
+			<img src="images/inst_japanese-aster.jpg" alt="Japanese Aster">
+			<img src="images/inst_japanese-forest-grass.jpg" alt="Japanese Forest Grass">
+			<img src="images/inst_snowdrop-anemone.jpg" alt="Snowdrop Anemone">
+			<img src="images/inst_blue-eyed-grass.jpg" alt="Blue Eyed Grass">
+			<img src="images/inst_calla-lily.jpg" alt="Calla Lily">
+			<img src="images/inst_coral-bells.jpg" alt="Coral Bells">
+			<img src="images/inst_dwarf-lobelia.jpg" alt="Dwarf Lobelia">
+			<img src="images/inst_dwarf-new-england-aster.jpg" alt="Dwarf New England Aster">
+			<img src="images/inst_daylily.jpg" alt="Daylily">
+			<img src="images/inst_lavender.jpg" alt="Lavender">
+			<img src="images/inst_japanese-onion.jpg" alt="Japanese Onion">
+		</div>
+		<a class="button button_link button_center" href="https://www.instagram.com/" target="_blank" title="instagram">
+			<span class="button__icon icon-instagram"></span>
+			<span class="button__text">Mariavilla</span>
+		</a>
+	</footer>
+
+	<!-- Верхняя часть подвала -->
+	<footer class="footer-top">
+		<div class="footer-top__logo">
+			<a class="logo" href="index.html">
+				<img class="logo__image" src="images/logo_mariavilla.svg" alt="Mariavilla">
+			</a>
+		</div>
+		<div class="footer-top__contacts">
+
+			<div class="contact">
+				<div class="contact__pic">
+					<span class="contact__icon icon-home-1"></span>
+				</div>
+				<div class="contact__data">
+					<span class="contact__type">Адрес:</span>
+					<span>222847, Минская обл., п.Марьино</span>
+				</div>
+			</div>
+
+			<div class="contact">
+				<div class="contact__pic">
+					<span class="contact__icon icon-mail"></span>
+				</div>
+				<div class="contact__data">
+					<span class="contact__type">E-mail:</span>
+					<a class="contact__link" href="mailto:contacts@mariavilla.com" title="Пишите нам!">contacts@mariavilla.com</a>
+				</div>
+			</div>
+
+			<div class="contact">
+				<div class="contact__pic">
+					<span class="contact__icon icon-mobile-2"></span>
+				</div>
+				<div class="contact__data">
+					<span class="contact__type">Телефон:</span>
+					<a class="contact__link" href="tel:+375293231211" title="Звоните нам!">+375 29 3231211</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<footer class="footer-bar"></footer>
+	<!-- Нижняя часть подвала -->
+	<footer class="footer-bottom">
+		<div class="footer-bottom__copyright">
+			<div class="copyriright">
+				<span>&copy; Mariavilla, 2022</span>
+			</div>
+		</div>
+		<!-- Блок социальных сетей -->
+		<div class="footer-bottom__socials">
+			<span>Мы в соцсетях:</span>
+			<ul class="socials">
+				<li class="socials__item">
+					<a class="socials__link" href="https://www.instagram.com/" target="_blank" title="instagram"><span
+							class="icon-instagram"></span></a>
+				</li>
+				<li class="socials__item">
+					<a class="socials__link" href="https://web.telegram.org/" target="_blank" title="telegram"><span
+							class="icon-telegram"></span></a>
+				</li>
+				<li class="socials__item">
+					<a class="socials__link" href="https://twitter.com/" target="_blank" title="twitter"><span
+							class="icon-twitter"></span></a>
+				</li>
+				<li class="socials__item">
+					<a class="socials__link" href="https://www.youtube.com/" target="_blank" title="youtube"><span
+							class="icon-youtube-play"></span></a>
+				</li>
+			</ul>
+		</div>
+	</footer>
+
+	<button class="button button_up" id="btnScrollUp" title="на верх страницы">
+		<span class="button__icon icon-up-open-big"></span>
+	</button>
+
+	<script src="scripts/jquery-3.6.1.min.js"></script>
+	<script src="scripts/owl.carousel.min.js"></script>
+	<script src="scripts/scripts.js"></script>
+</body>
+
+</html>
