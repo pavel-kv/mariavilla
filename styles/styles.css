@@ -1,0 +1,3897 @@
+﻿@font-face {
+  font-family: "Lora";
+  font-weight: 500;
+  font-style: normal;
+  src: url("../fonts/subset-Lora-Medium.woff2") format("woff2"),
+    url("../fonts/subset-Lora-Medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Lora";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../fonts/subset-Lora-Regular.woff2") format("woff2"),
+    url("../fonts/subset-Lora-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../fonts/roboto-regular-webfont.woff2") format("woff2"),
+    url("../fonts/roboto-regular-webfont.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 500;
+  font-style: normal;
+  src: url("../fonts/roboto-medium-webfont.woff2") format("woff2"),
+    url("../fonts/roboto-medium-webfont.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-style: italic;
+  src: url("../fonts/roboto-italic-webfont.woff2") format("woff2"),
+    url("../fonts/roboto-italic-webfont.woff") format("woff");
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --main-bg-color: #ffffff;
+  --attention-bg-color: #af0000;
+  --first-text-color: #241305;
+  --second-text-color: #ffffff;
+  --first-design-color: #5a792d;
+  --first-design-color--rgb: 90, 121, 45;
+  --second-design-color: #f4f4f4;
+  --second-design-color--rgb: 244, 244, 244;
+  --overlay-color--rgb: 0, 0, 0;
+  --third-design-color: #dddddd;
+  --active-link-color: #ff7300;
+  --active-link-color--rbg: 255, 115, 0;
+  --visited-link-color: #6F2949;
+  --shadow-color--rgb: 0, 0, 0;
+  --blink-color--rgb: 255, 255, 255;
+}
+
+/* стиль для каркаса страницы*/
+.frame {
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, 1600px) 1fr;
+  grid-template-rows: repeat(2, min-content) 1fr repeat(3, min-content);
+  grid-column-gap: 20px;
+  grid-template-areas:
+    ".        header-top     ."
+    ".        header-bottom  ."
+    "main     main           main"
+    "carousel carousel       carousel"
+    ".        footer-top     ."
+    ".        footer-bottom  .";
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--main-bg-color);
+  color: var(--first-text-color);
+  font-size: 16px;
+}
+
+/* Стили для слайдера внизу страницы */
+.carousel {
+  width: 100%;
+  grid-area: carousel;
+  position: relative;
+}
+
+.owl-theme .owl-nav {
+  margin-top: 0;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  font-size: 40px;
+  color: var(--second-text-color);
+}
+
+.owl-theme .owl-nav [class*=owl-] {
+  opacity: 0.75;
+}
+
+.owl-theme .owl-nav [class*=owl-]:hover {
+  background: transparent;
+  opacity: 1;
+}
+
+/* Макет для блока main главной страницы */
+.home-grid {
+  position: relative;
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 1600px) 1fr;
+  grid-column-gap: 20px;
+  grid-template-areas:
+    "banner   banner         banner"
+    ".        categories     ."
+    ".        story          ."
+    ".        slider         ."
+    ".        plants         ."
+    ".        notes          .";
+}
+
+/* Макет для блока main страницы  о нас */
+.about-grid {
+  position: relative;
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, 1600px) 1fr;
+  grid-template-rows: min-content min-content;
+  grid-column-gap: 20px;
+  grid-template-areas:
+    "banner   banner    banner"
+    ".        about     .";
+}
+
+.about-grid .about {
+  grid-area: about;
+  top: -200px;
+  margin: 0 0 -100px 0;
+  padding: 100px 0;
+  background-color: var(--second-design-color);
+  background-image: url(../images/about_bg.png);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+}
+
+/* Макет для блока main страницы блога */
+.blog-page {
+  position: relative;
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, 380px) minmax(auto, 1200px) 1fr;
+  grid-template-rows: min-content min-content;
+  grid-column-gap: 20px;
+  grid-template-areas:
+    "banner  banner   banner  banner"
+    ".       sidebar  notes   .";
+}
+
+.sidebar {
+  grid-area: sidebar;
+  margin-top: 50px;
+}
+
+.notes {
+  grid-area: notes;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 50px;
+}
+
+/* Макет для блока main страницы заметки блога */
+.post-page {
+  position: relative;
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, 380px) minmax(auto, 1200px) 1fr;
+  grid-template-rows: min-content min-content;
+  grid-column-gap: 20px;
+  grid-template-areas:
+    "banner  banner   banner  banner"
+    ".       sidebar  post    .";
+}
+
+/* Макет для блока main страницы коллекции */
+.collection-page {
+  position: relative;
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, 380px) minmax(auto, 1200px) 1fr;
+  grid-template-rows: min-content min-content;
+  grid-column-gap: 20px;
+  grid-template-areas:
+    "banner  banner   banner      banner"
+    ".       sidebar  collection  .";
+}
+
+/* Макет для блока main страницы описания растенияm */
+.plant-page {
+  position: relative;
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 1fr 200px minmax(400px, 680px) minmax(auto, 680px) 1fr;
+  grid-template-rows: repeat(2, min-content) 1fr;
+  grid-column-gap: 20px;
+  grid-template-areas:
+    "banner  banner   banner   banner   banner"
+    ".       thumbs   picture  desc     ."
+    ".       subject  subject  subject  .";
+}
+
+.contacts-grid {
+  position: relative;
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, 1600px) 1fr;
+  grid-template-rows: min-content min-content;
+  grid-column-gap: 20px;
+  grid-template-areas:
+    "banner   banner    banner"
+    ".        contacts  .";
+}
+
+.contacts {
+  grid-area: contacts;
+  margin: 50px 0 0;
+}
+
+/* Макет для блока main страницы галлереи */
+.gallery-page {
+  position: relative;
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, 1600px) 1fr;
+  grid-template-rows: min-content 1fr;
+  grid-column-gap: 20px;
+  grid-template-areas:
+    "banner banner      banner"
+    ".      description ."
+    ".      gallery     .";
+}
+
+.description {
+  grid-area: description;
+}
+
+/*--------------------------------
+  Шапка страницы
+  --------------------------------
+*/
+/* Зелёная полоса на всю ширину вьюпорта */
+.top-bar {
+  grid-column: 1 / -1;
+  grid-row: 1 / 1;
+  background-color: var(--first-design-color);
+}
+
+/* Верхняя часть заголовка */
+.header-top {
+  grid-area: header-top;
+  display: flex;
+  padding: 12px 0;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+  font-size: 14px;
+  color: var(--second-text-color);
+  background-color: var(--first-design-color);
+}
+
+/* Блок информации */
+.info {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.info__item {
+  padding: 0 20px 0 0;
+}
+
+.info__link {
+  text-decoration: none;
+  font-size: 12px;
+  color: var(--second-text-color);
+}
+
+.info__link:hover {
+  color: var(--first-text-color);
+}
+
+/* Блок социальных сетей */
+.socials {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.socials__item {
+  padding: 0 0 0 20px;
+}
+
+.socials__link {
+  text-decoration: none;
+  font-size: inherit;
+  color: inherit;
+}
+
+.header-top .socials__link:hover {
+  color: var(--first-text-color);
+}
+
+.footer-bottom__socials .socials__link:hover,
+.share-link .socials__link:hover {
+  color: var(--first-design-color);
+}
+
+
+/* Нижняя часть заголовка с меню */
+.header-bottom {
+  position: relative;
+  grid-area: header-bottom;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Lora", "Georgia", serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--first-text-color);
+}
+
+/* Блок с логотипом */
+.logo {
+  flex-basis: 25%;
+}
+
+.logo_mobile {
+  display: none;
+}
+
+.logo__image {
+  display: block;
+  width: 250px;
+  padding-right: 10px;
+}
+
+/* Блок меню */
+.menu {
+  position: relative;
+  flex-basis: 50%;
+  z-index: 20;
+}
+
+.menu__item_mobile {
+  display: none;
+}
+
+.menu__button-close {
+  display: none;
+}
+
+.menu__hide {
+  display: none;
+}
+
+.menu__list {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding: 50px 0 0 0;
+}
+
+.menu__item {
+  margin: 0 8px;
+  padding: 0 0 50px 0;
+}
+
+.menu__link {
+  position: relative;
+  padding: 0 0 50px 0;
+  color: var(--first-text-color);
+  text-decoration: none;
+}
+
+.menu__link::after {
+  content: "";
+  position: absolute;
+  display: block;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  border-bottom: 5px solid var(--first-design-color);
+  transition: width 0.5s ease;
+}
+
+.menu__link:focus-visible {
+  outline: 3px solid var(--first-design-color);
+  border-radius: 3px;
+}
+
+.menu__item:hover .submenu {
+  visibility: visible;
+  opacity: 1;
+  transform: translatex(-50%);
+}
+
+.menu__item:hover .submenu__picture-box {
+  display: block;
+}
+
+.menu__item:hover .menu__link {
+  color: var(--first-design-color);
+}
+
+.menu__item:hover .menu__link::after {
+  width: 100%;
+}
+
+.menu__link_active::after {
+  width: 100%;
+}
+
+.menu__icon {
+  display: none;
+}
+
+/* Подменю */
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 100%;
+  background-color: var(--second-design-color);
+  box-shadow: 0 3px 20px rgba(var(--overlay-color--rgb), 0.5);
+  visibility: hidden;
+  opacity: 0;
+  transform: translatex(-45%);
+  transition: all 0.5s ease-out 0.1s;
+  z-index: 20;
+}
+
+/* Контейнер для подменю */
+.submenu__box {
+  display: flex;
+  padding: 0 40px 40px;
+}
+
+/* Контейнер для текстового содержимого подменю */
+.submenu__content {
+  padding: 0 15px 0 0;
+  flex-grow: 1;
+  flex-basis: 50%;
+}
+
+/* Название подменю */
+.submenu__title {
+  font-size: 24px;
+  font-weight: 500;
+  padding: 25px 0 10px;
+}
+
+/* Список подменю */
+.submenu__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ссылка в подменю */
+.submenu__link {
+  color: var(--first-text-color);
+  font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  text-decoration: none;
+  line-height: 2;
+}
+
+.submenu__item:hover .submenu__link {
+  color: var(--first-design-color);
+}
+
+/* Контейнер для изображения в подменю */
+.submenu__picture-box {
+  display: none;
+  position: relative;
+  flex-grow: 1;
+  flex-basis: 50%;
+}
+
+.submenu__picture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.submenu__picture_show {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Контейнер для блока управления  (поиск, меню мобильное) */
+.controls {
+  flex-basis: 25%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.mobile {
+  display: flex;
+}
+
+.mobile__search {
+  display: none;
+}
+
+.mobile__menu {
+  display: none;
+}
+
+.mobile__button {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+.mobile__icon {
+  font-size: 22px;
+  opacity: 0.5;
+}
+
+.mobile__icon::before {
+  margin-right: 0;
+  margin-left: 8px;
+}
+
+/* Блок поиска */
+.search {
+  width: 100%;
+}
+
+.search__form {
+  position: relative;
+  text-align: right;
+}
+
+.search__input {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.search__input::after {
+  content: "";
+  position: absolute;
+  display: block;
+  right: 45px;
+  width: 0;
+  height: 0;
+  border-right: 1px solid var(--third-design-color);
+  transition: height 0.4s ease;
+}
+
+.search__field {
+  position: relative;
+  width: 60%;
+  min-width: 60px;
+  margin: 0;
+  padding: 12px 70px 12px 15px;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: var(--first-text-color);
+  background-color: var(--second-design-color);
+  border: none;
+  border-radius: 30px;
+  outline: 3px solid transparent;
+  transition: width 0.5s ease-out;
+}
+
+.search__field::placeholder {
+  color: var(--first-text-color);
+  opacity: 0.5;
+}
+
+.search__field:focus {
+  width: 95%;
+  outline: 3px solid var(--first-design-color);
+}
+
+.search__input:focus-within::after {
+  display: block;
+  height: 75%;
+}
+
+.search__input:focus-within .search__button_delete {
+  display: block;
+  opacity: 0.6;
+}
+
+.search__field:hover {
+  box-shadow: 0 0 2px 1px var(--first-design-color);
+  background-color: rgba(var(--first-design-color--rgb), 0.1);
+}
+
+.search__button {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 10px;
+  border: none;
+  background-color: transparent;
+}
+
+.search__button_delete {
+  right: 40px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.search__icon {
+  font-size: 22px;
+  opacity: 0.5;
+}
+
+/* Баннер на всю ширину вьюпорта сразу после шапки страницы */
+.banner {
+  grid-area: banner;
+  position: relative;
+  width: 100%;
+  height: 600px;
+  position: relative;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  transition: all 0.5s ease;
+}
+
+.banner_home {
+  background-image: url("../images/banner-home.jpg");
+}
+
+.banner_gallery {
+  background-image: url("../images/banner-gallery.jpg");
+}
+
+.banner_collection {
+  background-image: url("../images/banner-collection.jpg");
+}
+
+.banner_contacts {
+  background-image: url("../images/banner-contacts.jpg");
+}
+
+.banner_about {
+  background-image: url("../images/banner-about.jpg");
+}
+
+.banner_blog {
+  background-image: url("../images/banner-blog.jpg");
+}
+
+.banner__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(var(--overlay-color--rgb), 0.5);
+}
+
+.banner__text {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1600px;
+  width: 90%;
+  top: 15%;
+  left: 50%;
+  margin: 0;
+  transform: translatex(-50%);
+  text-align: center;
+}
+
+.banner__title {
+  margin: 0 0 12px;
+  color: var(--second-text-color);
+  font-family: "Lora", "Georgia", serif;
+  font-size: 56px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  line-height: 1.1;
+}
+
+.banner__subtitle {
+  margin: 0 0 40px;
+  color: var(--second-text-color);
+  font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.banner_narrow {
+  height: 250px;
+}
+
+.banner_narrow .banner__text {
+  top: 25%;
+}
+
+.banner_animation .banner__text {
+  animation: banner-up 1.5s ease;
+}
+
+@keyframes banner-up {
+  from {
+    opacity: 0;
+    top: 70%;
+  }
+
+  50% {
+    opacity: 0;
+    top: 70%;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Кнопка */
+.button {
+  position: relative;
+  width: 230px;
+  padding: 12px;
+  color: var(--first-text-color);
+  background-color: var(--main-bg-color);
+  font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  z-index: 15;
+}
+
+.button__text,
+.button__icon {
+  vertical-align: middle;
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 0;
+  top: 0;
+  left: 0;
+  background-color: var(--first-design-color);
+  transition: width 0.4s ease;
+}
+
+.button:focus {
+  outline: none;
+  color: var(--second-text-color);
+  outline: 3px solid rgba(var(--active-link-color--rbg), 0.8);
+}
+
+.button:focus::after {
+  width: 100%;
+  z-index: -1;
+}
+
+.button:hover {
+  color: var(--second-text-color);
+  z-index: 1;
+}
+
+.button:hover::after {
+  width: 100%;
+  z-index: -1;
+}
+
+.button:active {
+  outline: 3px solid rgba(var(--active-link-color--rbg), 0.8);
+}
+
+/* модификатор для кнопки */
+.button_dark {
+  color: var(--second-text-color);
+  background-color: var(--first-text-color);
+}
+
+/* модификатор для кнопки на верх страницы*/
+.button_up {
+  position: fixed;
+  display: none;
+  bottom: 15px;
+  right: 50%;
+  transform: translateX(50%);
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  border-radius: 50%;
+  text-align: center;
+  border: 3px solid var(--first-design-color);
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+.button_up::after {
+  width: 100%;
+  height: 100%;
+  background-color: var(--main-bg-color);
+  border-radius: 50%;
+  z-index: -1;
+  transition: background-color 0.5s ease;
+}
+
+
+.button_up:focus {
+  outline: none;
+  color: var(--second-text-color);
+  border: 3px solid var(--third-design-color);
+  outline: 3px solid rgba(var(--active-link-color--rbg), 0.8);
+  opacity: 1;
+}
+
+.button_up:focus::after {
+  background-color: var(--first-design-color);
+}
+
+.button_up:hover {
+  border: 3px solid var(--third-design-color);
+  opacity: 1;
+}
+
+.button_up:hover::after {
+  background-color: var(--first-design-color);
+}
+
+.button_up .button__icon {
+  font-size: 22px;
+}
+
+.button_show {
+  display: block;
+}
+
+/* модификатор для нопки закрытия модального окна */
+.button_close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  font-size: 22px;
+  background-color: transparent;
+}
+
+.button_close::after {
+  background-color: var(--attention-bg-color);
+  transition: width 0.2s ease;
+}
+
+/* модификатор Для выравнивания по центру родителя */
+.button_center {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-decoration: none;
+  transform: translate(-50%, -50%);
+}
+
+/* модификатор для кнопки ссылки */
+.button_link {
+  display: block;
+  text-decoration: none;
+}
+
+/* Модификатор кнопки в модальном окне */
+.button_modal {
+  width: 150px;
+  margin: 6px 0;
+  padding: 6px;
+}
+
+/* Блок ссылок на основные категории */
+.categories {
+  grid-area: categories;
+  display: flex;
+  position: relative;
+  width: 100%;
+  top: -200px;
+  margin: 0 0 -190px 0;
+  justify-content: space-between;
+  transition: all 0.5s ease;
+}
+
+.category {
+  flex-basis: 33.33%;
+  margin: 0 16px;
+  padding: 16px;
+  background-color: var(--main-bg-color);
+  border: 3px solid transparent;
+  transition: all 0.5s ease;
+}
+
+.category:first-child {
+  margin-left: 0;
+}
+
+.category:last-child {
+  margin-right: 0;
+}
+
+.category:hover {
+  border: 3px solid var(--second-design-color);
+  box-shadow: 0 0 5px 1px rgba(var(--shadow-color--rgb), 0.3), 
+              0 1px 10px 2px rgba(var(--shadow-color--rgb), 0.2);
+}
+
+.category__link {
+  display: block;
+  color: var(--first-text-color);
+  text-decoration: none;
+  transition: all 0.5s ease;
+}
+
+.category__thumb {
+  position: relative;
+  padding-bottom: 64%;
+}
+
+.category__wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.category__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s ease;
+}
+
+.category:hover .category__image {
+  transform: scale(1.15);
+}
+
+.category:hover .category__link {
+  color: var(--first-design-color);
+}
+
+.category__info {
+  margin: 0;
+  padding: 25px 0;
+  font-family: "Lora", "Georgia", serif;
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ------------------------------
+  Подвал страницы 
+ -------------------------------- */
+.footer-top {
+  grid-area: footer-top;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 0;
+}
+
+.footer-top__logo {
+  flex-basis: 25%;
+}
+
+.footer-top__contacts {
+  display: flex;
+  flex-basis: 75%;
+  align-items: center;
+}
+
+.contact {
+  display: flex;
+  flex-basis: calc(100% / 3);
+  justify-content: flex-end;
+  align-items: flex-start;
+  color: var(--first-text-color);
+  font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.contact__pic {
+  padding: 10px;
+  border-radius: 50%;
+  background-color: var(--second-design-color);
+}
+
+.contact__icon {
+  font-size: 20px;
+}
+
+.contact__data {
+  padding: 10px 0 10px 10px;
+}
+
+.contact__link {
+  display: block;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+}
+
+.contact__link:hover {
+  color: var(--first-design-color);
+}
+
+.footer-bottom {
+  grid-area: footer-bottom;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 0;
+  font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+  font-size: 16px;
+  color: var(--first-text-color);
+}
+
+.footer-bottom__socials {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer-bar {
+  grid-column: 1 / -1;
+  grid-row: -1 / -2;
+  border-top: 1px solid var(--second-design-color);
+}
+
+/* --------------------------------
+  Основная часть страницы 
+-----------------------------------*/
+/* Стили для блока заголовка и/или текстового контента страницы */
+.section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 110px 0;
+  color: var(--first-text-color);
+  font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+}
+
+.section_top {
+  margin-top: 0;
+}
+
+.section__subtitle {
+  position: relative;
+  padding: 0 10px;
+  margin: 0 0 5px;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.section__subtitle::before {
+  content: "";
+  position: absolute;
+  width: 25%;
+  top: 50%;
+  left: -25%;
+  border-top: 1px solid var(--first-text-color);
+  z-index: 1;
+}
+
+.section__subtitle::after {
+  content: "";
+  position: absolute;
+  width: 25%;
+  top: 50%;
+  right: -25%;
+  border-top: 1px solid var(--first-text-color);
+  z-index: 1;
+}
+
+.section__title {
+  margin: 0 0 30px;
+  font-family: "Lora", "Georgia", serif;
+  font-size: 46px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.section__desc {
+  margin: 16px 0 16px;
+  padding: 0 20%;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: justify;
+}
+
+.section__thumb {
+  width: 100px;
+  height: 100px;
+  margin: 16px 0 0;
+  border: solid 3px var(--third-design-color);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.section__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.section__slogan {
+  margin: 30px 0 0;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.section__tagline {
+  color: var(--first-design-color);
+  text-transform: lowercase;
+}
+
+.story {
+  grid-area: story;
+}
+
+/* Слайдер */
+.slider {
+  grid-area: slider;
+  position: relative;
+}
+
+.slider__slide {
+  position: relative;
+  overflow: hidden;
+}
+
+/* блик на слайдере slider__slide */
+.slider__slide::before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background-image: linear-gradient(to right, rgba(var(--blink-color--rgb), 0) 0%, 
+                                              rgba(var(--blink-color--rgb), 0.2) 95%, 
+                                              rgba(var(--blink-color--rgb), 0) 100%);
+  transform: skewX(-30deg);
+  z-index: 1;
+}
+
+.slider__slide:hover::before {
+  animation: banner-blink 0.7s ease;
+}
+
+/* анимация блика на слайдере */
+@keyframes banner-blink {
+  from {
+    left: -75%;
+  }
+
+  to {
+    left: 125%;
+  }
+}
+
+.slider__image {
+  display: block;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.slider__text {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  top: 20%;
+  left: 50%;
+  transform: translatex(-50%);
+  text-align: center;
+}
+
+.slider__subtitle {
+  margin: 0 0 20px;
+  color: var(--second-text-color);
+  font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  text-shadow: 1px 1px 4px var(--first-text-color);
+}
+
+.slider__title {
+  margin: 0 0 50px;
+  color: var(--second-text-color);
+  font-family: "Lora", "Georgia", serif;
+  font-size: 50px;
+  font-weight: 600;
+  text-shadow: 1px 1px 4px var(--first-text-color);
+}
+
+/* изменение стилей слайдера slick */
+.slider .slick-dots li button:before {
+  font-size: 15px;
+}
+
+.slider .slick-dots li button:hover:before,
+.slider .slick-dots li button:focus:before {
+  opacity: 1;
+  color: var(--first-design-color);
+}
+
+.slick-next,
+.slick-prev {
+  height: 40px;
+  z-index: 5;
+}
+
+.slick-next {
+  right: 20px;
+}
+
+.slick-prev {
+  left: 20px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-family: 'fontello';
+  font-size: 40px;
+}
+
+.slick-prev:before {
+  content: "\e81b";
+}
+
+.slick-next:before {
+  content: "\e81c";
+}
+
+/* Стили для блока растений */
+.plants {
+  grid-area: plants;
+}
+
+.plants-wrap {
+  display: grid;
+  width: 100%;
+  margin: 30px 0 0 0;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-column-gap: 32px;
+  grid-row-gap: 16px;
+}
+
+.box-item {
+  position: relative;
+  padding: 20px 20px 20px;
+  color: var(--first-text-color);
+  font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+  transition: all 0.5s ease;
+}
+
+.box-item:hover {
+  background-color: var(--second-design-color);
+  box-shadow: 0 0 5px 1px rgba(var(--shadow-color--rgb), 0.3), 
+              0 1px 10px 2px rgba(var(--shadow-color--rgb), 0.2);
+  transform: scale(1.08);
+}
+
+.box-item__thumb {
+  position: relative;
+  padding-bottom: 100%;
+}
+
+.box-item__image {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s ease;
+}
+
+.box-item:hover .box-item__image {
+  filter: saturate(1.4);
+}
+
+.box-item__name {
+  margin: 16px 0 0;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.box-item__latin {
+  margin: 8px 0 0;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.box-item__link {
+  color: var(--first-text-color);
+  font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+  text-decoration: none;
+}
+
+.box-item__link:hover {
+  color: var(--first-design-color);
+}
+
+.box-item__action {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 35px;
+  right: 35px;
+}
+
+.box-item__icon {
+  padding: 4px;
+  color: var(--second-text-color);
+  background-color: var(--first-text-color);
+  border-radius: 3px;
+  font-size: 28px;
+  text-decoration: none;
+  opacity: 0.3;
+  transition: all 0.5s ease;
+}
+
+.box-item:hover .box-item__icon {
+  background-color: var(--main-bg-color);
+  color: var(--first-text-color);
+  opacity: 0.6;
+}
+
+.box-item:hover .box-item__icon:hover {
+  background-color: var(--first-design-color);
+  opacity: 0.9;
+}
+
+/* Модальное окно быстрого просмотра краткого описания растения */
+.quick-view-shadow {
+  position: fixed;
+  visibility: hidden;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(var(--overlay-color--rgb), 0.7);
+  opacity: 0;
+  transition: all 0.5s ease 0.1s;
+  z-index: 100;
+}
+
+.quick-view-shadow_show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.quick-view {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  visibility: hidden;
+  z-index: 101;
+}
+
+.quick-view_visible {
+  visibility: visible;
+}
+
+.quick-view__box {
+  position: relative;
+  display: grid;
+  grid-template-columns: 360px 460px;
+  grid-template-rows: 300px min-content;
+  grid-auto-rows: 1fr;
+  grid-gap: 16px;
+  grid-template-areas:
+    "picture  desc"
+    "thumbs   desc"
+    ".        desc";
+  padding: 30px;
+  background-color: var(--main-bg-color);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.8s ease, transform 0.8s ease, visibility 0.8s ease;
+}
+
+.quick-view__box_open {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.quick-view__links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Блок заметок с ссылками на статью в блоге */
+/* устанавливаем фон блока заметок на главной странице */
+.notes-background {
+  grid-column: 1 / -1;
+  grid-row: notes-start / notes-end;
+  background-color: var(--second-design-color);
+}
+
+/* Стили блока заметок с ссылкой на статью в блоге */
+.notes__list {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 0 35px;
+}
+
+.note {
+  display: flex;
+  flex-basis: calc(100% / 3);
+  flex-direction: column;
+  margin: 0 16px;
+}
+
+.note_first {
+  margin-left: 0;
+}
+
+.note_last {
+  margin-right: 0;
+}
+
+.note__thumb {
+  width: 100%;
+  height: 0;
+  position: relative;
+  padding-bottom: 55%;
+  overflow: hidden;
+}
+
+.note__image {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s ease;
+}
+
+.note__image:hover {
+  transform: scale(1.15);
+}
+
+.note__info {
+  flex-grow: 1;
+  background-color: var(--main-bg-color);
+  padding: 16px 25px 45px;
+  color: var(--first-text-color);
+  font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+  font-size: 16px;
+}
+
+.note__date {
+  font-size: 16px;
+}
+
+.note__title {
+  margin: 0;
+  display: block;
+  padding: 16px 0;
+  color: inherit;
+  font-size: 30px;
+  font-weight: inherit;
+}
+
+.note__title-link {
+  color: inherit;
+  font-size: inherit;
+  text-decoration: none;
+}
+
+.note__title:hover {
+  color: var(--first-design-color);
+}
+
+.note__text {
+  margin: 0;
+  font-size: 18px;
+}
+
+.note__link {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--first-design-color);
+}
+
+.note_row .note__link {
+  display: block;
+  width: fit-content;
+}
+
+.note__link:visited {
+  color: var(--visited-link-color);
+  border-color: var(--visited-link-color);
+}
+
+.note__link:hover {
+  color: var(--first-design-color);
+  border-color: var(--first-design-color);
+}
+
+.note__link:active {
+  color: var(--active-link-color);
+  border-color: var(--active-link-color);
+}
+
+/* .note_row - модификатор для стиля заметки на странице блога
+  распололжение картинки и описания в строку */
+.notes .note_row {
+  flex-direction: row;
+  flex-basis: 100%;
+  margin: 0 0 30px 16px;
+}
+
+.note_row .note__thumb {
+  flex-shrink: 0;
+  flex-basis: 60%;
+  padding-bottom: 30%;
+}
+
+.note_row .note__info {
+  flex-shrink: 0;
+  flex-basis: 40%;
+  padding: 8px 0 0 30px;
+}
+
+.note_row .note__title {
+  font-size: 24px;
+}
+
+.note_row .note__text {
+  font-size: 16px;
+}
+
+/* Раздел в блоге */
+.chapter {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: var(--first-text-color);
+  font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+}
+
+.chapter__thumb {
+  width: 46px;
+  height: 46px;
+  margin: 0 16px 0 0;
+  border: solid 3px var(--third-design-color);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.chapter__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.chapter__data {
+  display: flex;
+  align-items: center;
+}
+
+.chapter__title {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.chapter__info {
+  display: flex;
+  align-items: center;
+}
+
+.chapter__icon::before {
+  margin-left: 0;
+}
+
+.chapter__date {
+  font-size: 16px;
+}
+
+/* Блок статьи в блоге */
+.post {
+  grid-area: post;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 50px 0 0 16px;
+  font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.post__pic {
+  width: 100%;
+  height: 0;
+  position: relative;
+  padding-bottom: 40%;
+  overflow: hidden;
+}
+
+.post__image {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.post__title {
+  color: var(--first-text-color);
+  font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  margin: 30px 0 24px;
+}
+
+.post__subtitle {
+  color: var(--first-text-color);
+  font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0 0 12px;
+}
+
+.post__list {
+  margin: 0 0 8px;
+  line-height: 1.5;
+  list-style-image: url("../images/list_green-leaf.svg");
+}
+
+.post .chapter {
+  margin-bottom: 30px;
+}
+
+.post__section {
+  margin: 0 0 30px 0;
+}
+
+.post__text {
+  margin: 0 0 10px 0;
+  color: var(--first-text-color);
+  font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.post__row {
+  display: flex;
+  margin: 0 0 30px 0;
+}
+
+.post__col-left {
+  flex-basis: 50%;
+  padding-right: 20px;
+}
+
+.post__col-right {
+  flex-basis: 50%;
+  padding-left: 20px;
+}
+
+.post__link {
+  text-decoration: none;
+}
+
+/* Блок иллюстрации к статье в блоге */
+.illustration {
+  margin: 0;
+  padding: 16px;
+  color: var(--first-text-color);
+  font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  border: 3px solid var(--third-design-color);
+}
+
+.illustration__image {
+  display: block;
+  width: 100%;
+}
+
+.illustration__title {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 8px 0;
+}
+
+.illustration__latin {
+  font-size: 16px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.illustration__desc {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0 0 10px;
+}
+
+.post .chapter__title {
+  padding: 10px 30px 10px 0;
+  font-size: 18px;
+  margin: 0;
+  border-right: 1px solid var(--third-design-color);
+}
+
+.post .chapter__icon::before {
+  margin-left: 30px;
+}
+
+/* Пагинатор на страницах блога и коллекции */
+.pagination {
+  margin: 55px 0 85px 16px;
+}
+
+.pagination__list {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pagination__item {
+  margin-right: 16px;
+}
+
+.pagination__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  background-color: var(--second-design-color);
+  border-radius: 50%;
+  color: var(--first-text-color);
+  font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+  font-size: 18px;
+  text-decoration: none;
+  border: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.pagination__link:focus {
+  outline: 3px solid rgba(var(--active-link-color--rbg), 0.5);
+}
+
+.pagination__link:hover {
+  background-color: var(--first-design-color);
+  color: var(--second-text-color);
+}
+
+.pagination__link:active {
+  transform: scale(1.2);
+}
+
+.pagination__link_current {
+  border: 3px solid var(--first-design-color);
+}
+
+/* Боковая панель на страницах блога, коллекции */
+/* Навигация (меню) в боковой панели */
+.side-menu__title {
+  margin: 0;
+  margin-bottom: 30px;
+  font-family: "Lora", "Georgia", serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--first-text-color);
+}
+
+.side-menu__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.side-menu__link {
+  display: flex;
+  justify-content: space-between;
+  color: var(--first-text-color);
+  font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  text-decoration: none;
+  line-height: 2;
+}
+
+.side-menu__link:hover {
+  color: var(--first-design-color);
+}
+
+/* Просмотренные ранее заметки в боковой панели*/
+.recent-notes {
+  margin-top: 50px;
+}
+
+.recent-notes__title {
+  margin: 0;
+  margin-bottom: 30px;
+  font-family: "Lora", "Georgia", serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--first-text-color);
+}
+
+.recent-notes__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.recent-note {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.recent-note__thumb {
+  position: relative;
+  flex-shrink: 0;
+  flex-basis: 50%;
+  padding-bottom: 25%;
+  overflow: hidden;
+}
+
+.recent-note__thumb::before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background-image: linear-gradient(to right, rgba(var(--blink-color--rgb), 0) 0%, 
+                                              rgba(var(--blink-color--rgb), 0.3) 95%, 
+                                              rgba(var(--blink-color--rgb), 0) 100%);
+  transform: skewX(-30deg);
+  z-index: 1;
+}
+
+.recent-note:hover .recent-note__thumb::before {
+  animation: banner-blink 0.5s ease;
+}
+
+.recent-note__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.recent-note__info {
+  flex-grow: 1;
+  background-color: var(--main-bg-color);
+  padding: 0 0 0 16px;
+  color: var(--first-text-color);
+  font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+  font-size: 14px;
+}
+
+.recent-note__title {
+  display: block;
+  padding: 0 0 8px 0;
+  color: inherit;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.recent-note__title:hover {
+  color: var(--first-design-color);
+}
+
+.recent-note__date {
+  font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+  font-size: 12px;
+  font-style: italic;
+}
+
+/* 
+  Стили для блока коллекции 
+*/
+.collection {
+  grid-area: collection;
+  margin: 50px 0 0 16px;
+}
+
+.collection-wrap {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-column-gap: 32px;
+  grid-row-gap: 16px;
+}
+
+/* Просмотренные ранее растения в боковой панели страницы коллекции */
+.recent-plants {
+  margin-top: 50px;
+}
+
+.recent-plants__title {
+  margin: 0;
+  margin-bottom: 30px;
+  font-family: "Lora", "Georgia", serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--first-text-color);
+}
+
+.recent-plants__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.recent-plant {
+  display: flex;
+  margin-bottom: 30px;
+  padding: 16px;
+  border: 2px solid var(--second-design-color);
+}
+
+.recent-plant__thumb {
+  position: relative;
+  flex-shrink: 0;
+  flex-basis: 40%;
+  padding-bottom: 40%;
+  overflow: hidden;
+}
+
+.recent-plant__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.recent-plant__info {
+  place-self: center;
+  flex-grow: 1;
+  flex-basis: 40%;
+  background-color: var(--main-bg-color);
+  padding: 0 0 0 16px;
+  color: var(--first-text-color);
+  font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+  font-size: 14px;
+}
+
+.recent-plant__title {
+  display: block;
+  padding: 8px 0 8px 0;
+  color: inherit;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.recent-plant__title:hover {
+  color: var(--first-design-color);
+}
+
+.recent-plant__latin {
+  margin: 0;
+  padding: 8px 0;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.recent-plant__thumb::before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background-image: linear-gradient(to right, rgba(var(--blink-color--rgb), 0) 0%, 
+                                              rgba(var(--blink-color--rgb), 0.3) 95%, 
+                                              rgba(var(--blink-color--rgb), 0) 100%);
+  transform: skewX(-30deg);
+  z-index: 1;
+}
+
+.recent-plant:hover .recent-plant__thumb::before {
+  animation: banner-blink 0.5s ease;
+}
+
+/* Стили для блоков описания растенния */
+/* Блок превьюшек */
+.plant-thumbs {
+  grid-area: thumbs;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 50px 0 0;
+}
+
+/* скрывает превьюшку при показе большого изображения */
+.plant-thumbs__thumb_hide {
+  display: none;
+}
+
+/* .plant-thumbs_modal - класс-модификатор для изменения 
+    размеров и расположения выводимых элементов в модальном окне 
+    быстрого просмотра информации о растении */
+.quick-view__box .plant-thumbs_modal {
+  margin: 0;
+  flex-direction: row;
+}
+
+.plant-thumbs__thumb {
+  flex-grow: 0;
+  flex-basis: 30%;
+  padding: 8px;
+  background-color: var(--main-bg-color);
+  border: 3px solid var(--second-design-color);
+  transition: border 0.4s ease;
+}
+
+.plant-thumbs__thumb:hover {
+  border: 3px solid var(--first-design-color);
+  cursor: pointer;
+}
+
+.plant-thumbs_modal .plant-thumbs__thumb {
+  flex-basis: 30%;
+}
+
+.plant-thumbs__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Блок изображенения */
+.plant-picture {
+  grid-area: picture;
+  position: relative;
+  margin: 50px 0 0;
+  width: 100%;
+  border: 3px solid var(--second-design-color);
+  opacity: 1;
+}
+
+.quick-view__box .plant-picture_modal {
+  margin: 0;
+}
+
+.plant-picture__link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.8s ease;
+}
+
+.plant-picture__image {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  object-fit: cover;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+/*модификаторы скрывают изображение при смене картинок */
+.plant-picture_hide {
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* Блок краткого описания растения */
+.plant-desc {
+  grid-area: desc;
+  display: flex;
+  flex-direction: column;
+  margin: 50px 0 0;
+  padding: 0 0 0 20px;
+  color: var(--first-text-color);
+  font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.quick-view__box .plant-desc_modal {
+  margin: 0;
+  padding: 0 0 0 10px;
+}
+
+.plant-desc__title {
+  margin: 0;
+  padding: 16px 0;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.quick-view__box .plant-desc__title {
+  padding: 8px 0;
+  font-size: 26px;
+}
+
+.plant-desc__latin {
+  margin: 0;
+  padding: 0 0 8px 0;
+  color: var(--first-design-color);
+  font-size: 22px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.quick-view__box .plant-desc__latin {
+  font-size: 20px;
+}
+
+.plant-desc__text {
+  margin: 0;
+  padding: 16px 0 16px 0;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.plant-desc_modal .plant-desc__text {
+  padding: 8px 0 8px 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.plant-desc__features {
+  border-top: 1px solid var(--second-design-color);
+  border-bottom: 1px solid var(--second-design-color);
+  font-size: 14px;
+  padding: 8px 0;
+}
+
+.quick-view__box .plant-desc__features {
+  font-size: 14px;
+  padding: 8px 0;
+}
+
+.plant-desc__feature {
+  margin: 0;
+  padding: 4px 0;
+}
+
+.quick-view__box .plant-desc__feature {
+  padding: 2px 0;
+}
+
+/* 
+  Блок расширенного описания растения
+*/
+.plant-subject {
+  grid-area: subject;
+  margin: 30px 0 85px;
+  color: var(--first-text-color);
+  font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.plant-subject__text {
+  margin: 0;
+  padding: 16px 0 16px 0;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+/* Контейнер на гридах для фотографий растения */
+.plant-subject__wrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 30px;
+  grid-auto-rows: 260px;
+  grid-auto-flow: row dense;
+}
+
+.plant-subject__box {
+  width: 100%;
+  height: 100%;
+}
+
+.plant-subject__link {
+  text-decoration: none;
+}
+
+.plant-subject__box_vertical {
+  grid-row: span 2;
+}
+
+.plant-subject__box_horizontal {
+  grid-column: span 2;
+}
+
+.plant-subject__box_big {
+  grid-row: span 2;
+  grid-column: span 2;
+}
+
+.plant-subject__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Блок поделиться в соцсетях */
+.share-link {
+  display: flex;
+  justify-content: flex-start;
+  padding: 16px 0;
+}
+
+.quick-view__box .share-link {
+  font-size: 16px;
+  padding: 8px 0;
+}
+
+/* Меню блока расширенного описания растения */
+.detail-menu {
+  margin: 30px 0;
+}
+
+.detail-menu__list {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.detail-menu__item {
+  padding: 0 30px;
+}
+
+.detail-menu__link {
+  margin: 0;
+  padding: 0 0 5px;
+  color: var(--first-text-color);
+  background-color: transparent;
+  font-family: "Lora", "Georgia", serif;
+  font-size: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  border-bottom: 5px solid transparent;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.detail-menu__link:hover {
+  color: var(--first-design-color);
+}
+
+.detail-menu__link_active {
+  color: var(--first-design-color);
+  border-bottom: 5px solid var(--first-design-color);
+}
+
+.detail-info {
+  margin: 30px 0;
+}
+
+.detail-info__tab {
+  display: none;
+}
+
+.detail-info__tab_aclive {
+  display: block;
+}
+
+/* Блок контактной информации на странице контакты */
+.contacts__info {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 0;
+}
+
+.contacts__info .contact {
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex-basis: 32%;
+  font-size: 36px;
+  font-weight: 500;
+  border: 3px solid var(--second-design-color);
+}
+
+.contacts__info .contact__data {
+  padding: 70px 10px 30px;
+  text-align: center;
+}
+
+.contact__address {
+  display: block;
+  padding: 16px 0 0;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.contacts__info .contact__link {
+  padding: 16px 0 0;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.contacts__info .contact__pic {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90px;
+  height: 90px;
+  top: -23%;
+  border-radius: 50%;
+  background-color: var(--second-design-color);
+}
+
+.contacts__info .contact__icon {
+  font-size: 30px;
+}
+
+/* Блок интерактивной карты на странице контакты */
+.contacts__map {
+  padding: 16px;
+  border: 3px solid var(--second-design-color);
+}
+
+.contacts__widget {
+  width: 100%;
+  height: 600px;
+  border: none;
+}
+
+/*  Форма обратной связи на странице контакты  */
+.contacts__form {
+  margin: 40px 0 0;
+  width: 100%;
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  color: var(--first-text-color);
+  font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.feedback-form__info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.feedback-form__group {
+  flex-basis: 32%;
+}
+
+.feedback-form__label {
+  display: block;
+  padding: 0 0 10px 20px;
+}
+
+/* Стили для поля ввода формы*/
+.feedback-form__input {
+  position: relative;
+  width: 100%;
+  padding: 12px 20px;
+  background-color: var(--second-design-color);
+  color: var(--first-text-color);
+  font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  border: none;
+  outline: 3px solid transparent;
+  transition: all 0.5s ease;
+}
+
+.feedback-form__input::placeholder {
+  color: var(--first-text-color);
+  opacity: 0.5;
+}
+
+.feedback-form__input:hover {
+  box-shadow: 0 0 2px 1px var(--first-design-color);
+  background-color: rgba(var(--first-design-color--rgb), 0.2);
+}
+
+.feedback-form__input:focus {
+  outline: 3px solid var(--first-design-color);
+}
+
+.feedback-form__textarea {
+  margin: 30px 0 50px;
+}
+
+.feedback-form__textarea .feedback-form__input {
+  resize: vertical;
+  min-height: 200px;
+  max-height: 400px;
+}
+
+/* Стили для блока галлереи */
+.gallery {
+  grid-area: gallery;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 20px;
+  grid-auto-rows: 320px;
+  grid-auto-flow: row dense;
+  margin: 0 0 80px;
+}
+
+.gallery__box {
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  background-color: var(--main-bg-color);
+  border: 3px solid var(--second-design-color);
+  transition: all 0.5s ease;
+}
+
+.gallery__box:hover {
+  padding: 0;
+  border: 3px solid transparent;
+}
+
+.gallery__content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.gallery__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery__info {
+  position: absolute;
+  display: block;
+  width: 100%;
+  bottom: 0;
+  background-color: rgba(var(--overlay-color--rgb), 0.4);
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.gallery__box:hover .gallery__info {
+  opacity: 1;
+}
+
+.gallery__text {
+  margin: 0;
+  padding: 12px;
+  color: var(--second-text-color);
+  font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.gallery__box_big {
+  grid-row: span 2;
+  grid-column: span 2;
+}
+
+.gallery__box_vertical {
+  grid-row: span 2;
+  grid-column: span 1;
+}
+
+.gallery__box_horizontal {
+  grid-row: span 1;
+  grid-column: span 2;
+}
+
+/* Изменеие подписи под изображением при листании галлереи fancybox */
+.fancybox-caption {
+  font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+  font-size: 18px;
+}
+
+.fancybox-infobar {
+  font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+  font-size: 14px;
+}
+
+.fancybox-navigation .fancybox-button--arrow_left {
+  padding: 16px 16px 16px 6px;
+}
+
+.fancybox-navigation .fancybox-button--arrow_right {
+  padding: 16px 6px 16px 16px;
+}
+
+.fancybox-navigation .fancybox-button div {
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+}
+
+.caption-index-count {
+  font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+  font-size: 14px;
+}
+
+/*                   Медиазапросы                    */
+/* --------------- max-width: 1199px --------------- */
+@media (max-width: 1199px) {
+  .mobile__search {
+    display: block;
+  }
+
+  .search {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 135px;
+    z-index: 1;
+  }
+
+  .search__field {
+    visibility: hidden;
+    width: 100%;
+    height: 0;
+    border-radius: 0;
+    padding: 0;
+    background-color: rgba(var(--second-design-color--rgb), 0.8);
+    transition: none;
+    font-size: 0;
+    opacity: 0;
+  }
+
+  .search__field_show {
+    visibility: visible;
+    padding: 12px 70px 12px 15px;
+    height: 100%;
+    font-size: inherit;
+    opacity: 1;
+  }
+
+  .search__field_show-transition {
+    transition: all 0.5s ease-out;
+  }
+
+  .search__field:focus {
+    width: 100%;
+  }
+
+  .search__field:hover {
+    background-color: var(--second-design-color);
+  }
+
+  .search__button_submit {
+    visibility: hidden;
+  }
+
+  .search__button_delete {
+    visibility: hidden;
+  }
+
+  .search__button_show {
+    visibility: visible;
+  }
+
+  .mobile__button:hover {
+    color: var(--first-design-color);
+  }
+
+  /* Блок ссылок на основные категории */
+  .categories {
+    top: -160px;
+  }
+
+  /* страница коллекции */
+  .collection-wrap {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .box-item__name {
+    font-size: 18px;
+  }
+
+  /* Блок описания растенния */
+  .plant-page {
+    grid-template-columns: 1fr minmax(400px, 680px) minmax(auto, 900px) 1fr;
+    grid-template-rows: min-content 500px 150px auto 1fr;
+    grid-template-areas: "banner  banner   banner   banner"
+      ".       picture  desc     ."
+      ".       thumbs   desc     ."
+      ".       .        desc     ."
+      ".       subject  subject  .";
+  }
+
+  .plant-thumbs {
+    flex-direction: row;
+    margin: 20px 0 0;
+  }
+
+  .plant-subject__wrap {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-rows: 220px;
+  }
+
+  .plant-desc__title {
+    font-size: 28px;
+  }
+
+  /* Контакты */
+  .contacts__info .contact__address {
+    font-size: 20px;
+  }
+
+  .contacts__info .contact__link {
+    font-size: 20px;
+  }
+
+  .contacts__widget {
+    height: calc(100vw / 2);
+  }
+
+  /* Блог */
+  .notes .note_row {
+    flex-direction: column;
+    margin-bottom: 60px;
+  }
+
+  .note_row .note__info {
+    padding-top: 16px;
+    padding-left: 0;
+  }
+
+  .note_row .note__thumb {
+    flex-basis: auto;
+    padding-bottom: 50%;
+  }
+
+  /* Статья в блоге */
+  .post__row {
+    flex-direction: column;
+  }
+
+  .post__col-left {
+    padding-right: 0;
+    padding-bottom: 20px;
+  }
+
+  .post__col-right {
+    padding-left: 0;
+  }
+}
+
+/* --------------- max-width: 992px --------------- */
+@media (max-width: 992px) {
+  .header-bottom {
+    height: 125px;
+  }
+
+  .mobile__menu {
+    display: block;
+  }
+
+  /* Блок с логотипом */
+  .logo_mobile {
+    display: block;
+    padding: 0 0 16px;
+  }
+
+  .logo__image {
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  /* Блок меню */
+  .menu {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .menu_open {
+    display: block;
+  }
+
+  .menu_open .menu__button-close {
+    display: block;
+  }
+
+  .menu_open .menu__link_active::after {
+    width: 0;
+  }
+
+  .menu_open .menu__link_active {
+    color: var(--first-design-color);
+  }
+
+  .menu__button-close {
+    display: none;
+    position: relative;
+    display: block;
+    z-index: 35;
+  }
+
+  .menu__button-close .button_close {
+    left: 0;
+    position: relative;
+  }
+
+  .menu::before {
+    content: "";
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(var(--overlay-color--rgb), 0.5);
+    opacity: 0;
+    z-index: -1;
+  }
+
+  .menu_open::before {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .menu__list {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: -300px;
+    width: 300px;
+    padding: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: var(--main-bg-color);
+    font-family: "Roboto", "Segoe UI", "Geneva CY", "Tahoma", sans-serif;
+    font-size: 20px;
+    overflow-y: auto;
+    z-index: 30;
+  }
+
+  .menu__item {
+    position: relative;
+    margin: 0;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--third-design-color);
+  }
+
+  .menu__item_mobile {
+    display: block;
+    text-align: right;
+    background-color: var(--second-design-color);
+    position: relative;
+    padding: 0;
+    border: none;
+  }
+
+  .menu__item:hover .menu__link::after {
+    opacity: 0;
+    width: 0;
+  }
+
+  .menu__link {
+    padding: 0 0 0 16px;
+  }
+
+  .menu__button {
+    height: 100%;
+
+  }
+
+  .menu__icon {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 54px;
+    padding: 8px 0 0;
+    border: none;
+    border-left: 1px solid var(--third-design-color);
+    background-color: var(--main-bg-color);
+    font-size: 22px;
+  }
+
+  /* Подменю */
+  .submenu {
+    position: relative;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 80%;
+    transform: none;
+    transition: none;
+    box-shadow: none;
+    z-index: 40;
+  }
+
+  .submenu__content {
+    padding: 0;
+  }
+
+  .submenu__title {
+    font-size: 18px;
+    padding: 16px 0 8px;
+  }
+
+  .submenu__link {
+    font-size: 17px;
+  }
+
+  .submenu_show {
+    display: block;
+    visibility: visible;
+    background-color: transparent;
+    opacity: 1;
+    transform: none;
+  }
+
+  .submenu__picture-box {
+    display: none;
+  }
+
+  .submenu__picture {
+    display: none;
+  }
+
+  .submenu__box {
+    padding: 0 0 0 24px;
+  }
+
+  .menu__item:hover .submenu {
+    transform: none;
+  }
+
+  .menu__item:hover .submenu__picture-box {
+    display: none;
+  }
+
+  /* Баннер на всю ширину вьюпорта сразу после шапки страницы */
+  .banner {
+    height: 400px;
+  }
+
+  .banner_narrow {
+    height: 250px;
+  }
+
+  .banner__text {
+    top: 18%;
+  }
+
+  .banner__title {
+    font-size: 46px;
+  }
+
+  .banner__subtitle {
+    font-size: 26px;
+    margin: 0 0 30px;
+  }
+
+  /* Блок ссылок на основные категории */
+  .categories {
+    top: 0;
+    margin: 30px 0 0 0;
+  }
+
+  .category {
+    border: 3px solid var(--second-design-color);
+  }
+
+  .category__info {
+    font-size: 28px;
+  }
+
+  .notes__list {
+    flex-direction: column;
+    padding: 50px 0 35px;
+  }
+
+  /* Слайдер */
+  .slider__text {
+    top: 10%;
+  }
+
+  .slider__title {
+    margin: 0 0 30px;
+    font-size: 40px;
+  }
+
+  .slider__subtitle {
+    margin: 0 0 18px;
+    font-size: 20px;
+  }
+
+  /* Стили блока заметок с ссылкой на статью в блоге */
+  .notes {
+    margin-bottom: 50px;
+  }
+
+  .notes__list .note {
+    margin: 16px 0;
+    border: 1px solid var(--third-design-color);
+  }
+
+  /*  Подвал страницы  */
+  .footer-top {
+    align-items: center;
+  }
+
+  .footer-top__logo {
+    margin: 0;
+  }
+
+  .footer-top__contacts {
+    align-items: flex-start;
+  }
+
+  .contact {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact__data {
+    text-align: center;
+  }
+
+  /* Модальное окно быстрого просмотра краткого описания растения */
+  .quick-view__box {
+    max-height: 100vh;
+    grid-template-columns: 290px 300px;
+    grid-template-rows: 290px min-content;
+    overflow: auto;
+  }
+
+  .quick-view__box .share-link {
+    font-size: 14px;
+  }
+
+  .quick-view__box .socials__item {
+    padding-left: 10px;
+  }
+
+  .quick-view__box .button_modal {
+    width: 110px;
+    font-size: 14px;
+  }
+
+  /* страница коллекции */
+  .collection-page {
+    position: relative;
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr minmax(auto, 1600px) 1fr;
+    grid-template-rows: min-content min-content;
+    grid-column-gap: 20px;
+    grid-template-areas: "banner banner      banner"
+      ".      collection  .";
+  }
+
+  .collection {
+    margin-left: 0;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  /* Блок описания растенния */
+  .plant-page {
+    grid-template-columns: 1fr minmax(300px, 680px) minmax(auto, 900px) 1fr;
+    grid-template-rows: min-content 400px 120px auto 1fr;
+    grid-template-areas: "banner  banner   banner   banner"
+      ".       picture  desc     ."
+      ".       thumbs   desc     ."
+      ".       .        desc     ."
+      ".       subject  subject  .";
+  }
+
+  .plant-thumbs {
+    flex-direction: row;
+    margin: 20px 0 0;
+  }
+
+  .plant-subject__wrap {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows: 180px;
+  }
+
+  .plant-desc {
+    font-size: 16px;
+  }
+
+  .plant-desc__text {
+    font-size: 16px;
+  }
+
+  /* О нас */
+  .detail-menu__link {
+    font-size: 24px;
+  }
+
+  .about-grid .about {
+    top: -150px;
+    margin-bottom: -50px;
+  }
+
+  /* Контакты */
+  .contacts__info {
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+
+  .contacts__info .contact {
+    margin-bottom: 70px;
+  }
+
+  .contacts__info .contact__address {
+    font-size: 24px;
+  }
+
+  .contacts__info .contact__link {
+    font-size: 24px;
+  }
+
+  .feedback-form__input {
+    font-size: 16px;
+  }
+
+  /* Блог */
+  .blog-page {
+    position: relative;
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr minmax(auto, 1600px) 1fr;
+    grid-template-rows: min-content 1fr;
+    grid-column-gap: 20px;
+    grid-template-areas: "banner  banner  banner"
+      ".       notes   .";
+  }
+
+  .note_row .note__thumb {
+    padding-bottom: 40%;
+  }
+
+  .notes .note_row {
+    margin-left: 0;
+    margin-bottom: 30px;
+  }
+
+  .note_row .note__info {
+    margin-bottom: 0px;
+    padding-left: 16px;
+    padding-right: 16px;
+    flex-basis: content;
+    border: 1px solid var(--third-design-color);
+  }
+
+  .note_row .note__text {
+    padding-bottom: 16px;
+  }
+
+  /* Статья в блоге */
+  .post-page {
+    grid-template-columns: 1fr minmax(auto, 1600px) 1fr;
+    grid-template-rows: min-content 1fr;
+    grid-template-areas: "banner  banner  banner"
+      ".       post    .";
+  }
+
+  .post {
+    margin-left: 0;
+  }
+}
+
+/* --------------- max-width: 768px --------------- */
+@media (max-width: 768px) {
+
+  /* Блок растений */
+  .plants-wrap {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  /* Баннер на всю ширину вьюпорта сразу после шапки страницы */
+  .banner {
+    height: 300px;
+  }
+
+  .banner_narrow {
+    height: 210px;
+  }
+
+  .banner__title {
+    font-size: 32px;
+  }
+
+  .banner__subtitle {
+    font-size: 20px;
+    margin: 0 0 20px;
+  }
+
+  .banner_narrow .banner__text {
+    top: 30%;
+  }
+
+  /* Блок ссылок на основные категории */
+  .categories {
+    flex-direction: column;
+  }
+
+  .category {
+    margin: 16px 0;
+  }
+
+  /* Стили для блока заголовка и/или текстового контента страницы */
+  .section__title {
+    font-size: 30px;
+  }
+
+  .section__desc {
+    padding: 0;
+    font-size: 16px;
+  }
+
+  .section__subtitle {
+    font-size: 14px;
+  }
+
+  .section__subtitle::before {
+    width: 15%;
+    left: -15%;
+  }
+
+  .section__subtitle::after {
+    width: 15%;
+    right: -15%;
+  }
+
+  /* Слайдер */
+  .slider__subtitle {
+    margin: 0 0 10px;
+    font-size: 18px;
+  }
+
+  .slider__title {
+    margin: 0 0 20px;
+    font-size: 28px;
+  }
+
+  /* Заметки с ссылками на статью в блоге */
+  .box-item__name {
+    font-size: 20px;
+  }
+
+  .note__title {
+    padding: 16px 0;
+    font-size: 20px;
+  }
+
+  .note__text {
+    font-size: 14px;
+  }
+
+  /*  Подвал страницы  */
+  .footer-top {
+    flex-direction: column;
+    padding-bottom: 20px;
+  }
+
+  .footer-top__logo {
+    margin: 0;
+  }
+
+  .footer-top__contacts {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact {
+    margin: 20px 0 0;
+  }
+
+  .footer-bottom {
+    font-size: 14px;
+  }
+
+  .socials__item {
+    padding: 0 0 0 10px;
+  }
+
+  .button_link {
+    opacity: 0.7;
+  }
+
+  /* Модальное окно быстрого просмотра краткого описания растения */
+  .quick-view__box {
+    max-height: 100vh;
+    grid-template-columns: 430px;
+    grid-template-rows: 320px min-content;
+    grid-auto-rows: min-content;
+    grid-template-areas: "picture"
+                          "desc";
+    padding: 42px 20px 10px;
+    overflow: auto;
+  }
+
+  .quick-view__box .button_link {
+    opacity: 1;
+  }
+
+  .quick-view__box .plant-thumbs {
+    display: none;
+  }
+
+  .quick-view__box .plant-desc_modal {
+    padding: 0;
+  }
+
+  .quick-view__box .plant-desc__title {
+    padding-top: 0;
+    font-size: 20px;
+  }
+
+  .quick-view__box .plant-desc__latin {
+    padding-bottom: 0;
+    font-size: 18px;
+  }
+
+  .plant-desc_modal .plant-desc__text {
+    font-size: 14px;
+  }
+
+  .quick-view__box .plant-desc__features {
+    font-size: 12px;
+    padding: 4px 0;
+  }
+
+  /* Блок галлереи */
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows: 200px;
+  }
+
+  /* Блок описания растенния */
+  .plant-page {
+    grid-template-columns: 1fr minmax(100px, 180px) minmax(auto, 1340px) 1fr;
+    grid-template-rows: min-content minmax(380px, 500px) auto 1fr;
+    grid-template-areas: "banner  banner   banner  banner"
+                         ".       thumbs   picture ."
+                         ".       desc     desc    ."
+                         ".       subject  subject .";
+  }
+
+  .plant-thumbs {
+    flex-direction: column;
+    margin: 50px 0 0;
+  }
+
+  .plant-desc {
+    margin-top: 20px;
+    padding-left: 0;
+  }
+
+  .plant-subject__wrap {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-auto-rows: 120px;
+  }
+
+  .plant-desc__title {
+    font-size: 28px;
+  }
+
+  .detail-menu__item {
+    padding: 0 10px;
+  }
+
+  .detail-menu__link {
+    font-size: 18px;
+  }
+
+  .plant-subject__text {
+    font-size: 16px;
+  }
+
+  /* О нас */
+  .about-grid .about {
+    top: -100px;
+  }
+
+  .about .section__desc {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  /* Контакты */
+  .feedback-form__info {
+    flex-direction: column;
+  }
+
+  .feedback-form__label {
+    padding-top: 20px;
+  }
+
+  .contacts__widget {
+    height: 384px;
+  }
+
+  /* Блог */
+  .note_row .note__thumb {
+    padding-bottom: 50%;
+  }
+
+  /* Статья в блоге */
+  .post__pic {
+    padding-bottom: 50%;
+  }
+
+  .post__title {
+    font-size: 28px;
+  }
+
+  .post__subtitle {
+    font-size: 22px;
+  }
+}
+
+/* --------------- max-width: 480px --------------- */
+@media (max-width: 480px) {
+  /* Заголовок страницы */
+  .header-top {
+    flex-direction: column;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .info {
+    flex-direction: column;
+  }
+
+  .info__item {
+    padding: 0 0 8px 0;
+  }
+
+  .header-bottom .logo__image {
+    width: 200px;
+  }
+
+  .header-bottom {
+    font-size: 16px;
+  }
+
+  /* Баннер на всю ширину вьюпорта сразу после шапки страницы */
+  .banner__title {
+    font-size: 24px;
+  }
+
+  .banner__subtitle {
+    font-size: 18px;
+    margin: 0 0 20px;
+  }
+
+  /* Стили для блока заголовка и/или текстового контента страницы */
+  .section {
+    margin: 50px 0;
+  }
+
+  .section__title {
+    font-size: 22px;
+  }
+
+  .section__subtitle {
+    font-size: 12px;
+  }
+
+  .section__subtitle::before {
+    content: none;
+    width: 5%;
+    left: -5%;
+  }
+
+  .section__subtitle::after {
+    content: none;
+    width: 5%;
+    right: -5%;
+  }
+
+  .section__slogan {
+    font-size: 14px;
+  }
+
+  /* Слайдер */
+  .slider {
+    display: none;
+  }
+
+  /* Блок растений */
+  .plants-wrap {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .box-item__link {
+    text-align: center;
+  }
+
+  .box-item__action {
+    display: none;
+  }
+
+  /*  Подвал страницы  */
+  .carousel {
+    display: none;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 0;
+  }
+
+  .footer-bottom__socials {
+    justify-content: center;
+  }
+
+  .copyriright {
+    text-align: center;
+    padding-bottom: 8px;
+  }
+
+  /* Модальное окно быстрого просмотра краткого описания растения */
+  .quick-view-shadow,
+  .quick-view,
+  .quick-view__box {
+    display: none;
+  }
+
+  /* Блок галлереи */
+  .gallery {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+
+  .gallery__box_vertical {
+    grid-row: span 1;
+  }
+
+  .gallery__box_horizontal {
+    grid-column: span 1;
+  }
+
+  .gallery__box_big {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  /* Коллекция */
+  .collection-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  /* Пагинатор */
+  .pagination__link {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  .pagination__item {
+    margin-right: 10px;
+  }
+
+  /* Блок описания растенния */
+  .plant-page {
+    grid-template-columns: 1fr minmax(auto, 1600px) 1fr;
+    grid-template-rows: min-content minmax(300px, 400px) auto auto 1fr;
+    grid-template-areas: "banner  banner   banner"
+                         ".       picture  ."
+                         ".       thumbs   ."
+                         ".       desc     ."
+                         ".       subject  .";
+  }
+
+  .plant-thumbs {
+    flex-direction: row;
+    margin: 20px 0 0;
+  }
+
+  .plant-desc__title {
+    font-size: 24px;
+  }
+
+  .plant-desc__latin {
+    font-size: 20px;
+  }
+
+  .detail-menu__list {
+    flex-direction: column;
+  }
+
+  .detail-menu {
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+
+  .detail-info {
+    margin-top: 15px;
+  }
+
+  .detail-menu__item {
+    padding: 0 0 8px 0;
+  }
+
+  .detail-menu__link {
+    font-size: 20px;
+  }
+
+  .plant-subject__wrap {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+
+  .plant-subject__box_vertical {
+    grid-row: span 1;
+  }
+
+  .plant-subject__box_horizontal {
+    grid-column: span 1;
+  }
+
+  .plant-subject__box_big {
+    grid-row: span 1;
+    grid-column: span 1;
+  }
+
+  /* о нас */
+  .about .section__desc {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  /* Контакты */
+  .contacts__info .contact {
+    font-size: 30px;
+    margin-bottom: 40px;
+  }
+
+  .contacts__info .contact__data {
+    padding-top: 50px;
+    text-align: center;
+  }
+
+  .contacts__info .contact__pic {
+    width: 60px;
+    height: 60px;
+    top: -15%;
+  }
+
+  .contacts__info .contact__link {
+    font-size: 18px;
+  }
+
+  .contacts__info .contact__address {
+    font-size: 18px;
+  }
+
+  .feedback-form {
+    font-size: 16px;
+  }
+
+  /* блог */
+  .note_row .note__title {
+    font-size: 20px;
+  }
+
+  .note_row .note__thumb {
+    padding-bottom: 60%;
+  }
+
+  /* Статья в блоге */
+  .post .chapter {
+    align-items: center;
+  }
+
+  .post .chapter__data {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .post .chapter__title {
+    padding-top: 0;
+    font-size: 16px;
+    border: none;
+  }
+
+  .post .chapter__icon::before {
+    margin-left: 0;
+  }
+
+  .chapter__date {
+    font-size: 14px;
+  }
+
+  .post__pic {
+    padding-bottom: 60%;
+  }
+
+  .post {
+    font-size: 16px;
+  }
+
+  .post__title {
+    font-size: 26px;
+  }
+
+  .post__subtitle {
+    font-size: 20px;
+  }
+
+  .post__text {
+    font-size: 16px;
+  }
+}
+
+/* --------------- max-width: 320px --------------- */
+@media (max-width: 320px) {
+  /* Заголовок страницы */
+  .header-bottom {
+    flex-direction: column;
+  }
+
+  .header-bottom .logo__image {
+    padding: 10px 0;
+  }
+
+  .logo__image {
+    width: 100%;
+  }
+
+  .controls {
+    align-self: flex-end;
+    flex-basis: 100%;
+  }
+
+  .banner__title {
+    font-size: 22px;
+  }
+
+  .banner__subtitle {
+    font-size: 16px;
+  }
+
+  .button_link,
+  .button_dark {
+    width: 80%;
+    font-size: 14px;
+  }
+
+  .category__info {
+    font-size: 20px;
+  }
+
+  /* Стили для блока заголовка и/или текстового контента страницы */
+  .section__title {
+    font-size: 18px;
+  }
+
+  .section__desc {
+    font-size: 14px;
+  }
+
+  .note__date {
+    font-size: 14px;
+  }
+
+  .note__title {
+    font-size: 16px;
+  }
+
+  .note__info {
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 14px;
+  }
+
+  /* Блок растений */
+  .plants-wrap {
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  }
+
+  .box-item__name {
+    font-size: 16px;
+  }
+
+  /*  Подвал страницы  */
+  .contact {
+    font-size: 12px;
+  }
+
+  .footer-bottom__socials {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Меню */
+  .menu__list {
+    left: -100vw;
+    width: 100vw;
+    font-size: 18px;
+  }
+
+  .menu__icon {
+    width: 30px;
+    padding: 8px 0 0;
+    font-size: 16px;
+  }
+
+  .submenu__box {
+    padding-left: 16px;
+  }
+
+  .submenu__title {
+    font-size: 16px;
+  }
+
+  .submenu__item {
+    padding: 8px 0;
+  }
+
+  .submenu__link {
+    font-size: 14px;
+    line-height: 1;
+  }
+
+  /* Статья в блоге */
+  .post {
+    font-size: 14px;
+  }
+
+  .post__title {
+    font-size: 22px;
+  }
+
+  .post__subtitle {
+    font-size: 18px;
+  }
+
+  .post__text {
+    font-size: 14px;
+  }
+
+  .illustration__title {
+    font-size: 14px;
+  }
+
+  .illustration__latin {
+    font-size: 14px;
+  }
+
+  /* Блок описания растенния */
+  .plant-page {
+    grid-template-columns: 1fr minmax(auto, 1600px) 1fr;
+    grid-template-rows: min-content minmax(200px, 300px) auto auto 1fr;
+    grid-template-areas: "banner  banner   banner"
+                         ".       picture  ."
+                         ".       desc     ."
+                         ".       subject  .";
+  }
+
+  .plant-thumbs {
+    display: none;
+  }
+}
+
+/* стили для печати */
+@media print {
+  @page {
+    margin: 1cm;
+  }
+
+  *,
+  *::before,
+  *::after {
+    color: #000000 !important;
+    background-image: none !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  body {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .section {
+    margin: 20px 0 !important;
+  }
+
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+
+  img {
+    break-inside: avoid;
+  }
+
+  header,
+  footer,
+  aside,
+  nav,
+  .slider,
+  .button {
+    display: none !important;
+  }
+}
